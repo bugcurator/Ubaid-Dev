@@ -3,23 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============================================================
+         PRIMARY META TAGS
+    ============================================================ -->
     <title>Ubaid Ahmad - Full-Stack MERN Developer & UI/UX Designer</title>
-    <link rel="icon" href="./assets/webpage-icon.png" />
+    <meta
+      name="title"
+      content="Ubaid Ahmad | Full-Stack MERN Developer & UI/UX Designer"
+    />
     <meta
       name="description"
       content="Full-Stack MERN Developer | Agentic AI & UI/UX Design | Transforming complex business needs into seamless digital experiences for startups."
     />
     <meta
       name="keywords"
-      content="Ubaid Ahmad, Full-Stack Developer, MERN Stack, Agentic AI, UI/UX Designer, React.js, Node.js, MongoDB, Express.js, Tailwind CSS, Frontend Developer, Portfolio, Freelance"
+      content="Ubaid Ahmad, Full-Stack Developer, MERN Stack, Agentic AI, UI/UX Designer, React.js, Node.js, MongoDB, Express.js, Tailwind CSS, Frontend Developer, Portfolio, Freelance, Web Developer Pakistan, JavaScript Developer, GitHub, Behance, Substack"
     />
     <meta name="author" content="Ubaid Ahmad" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f0f1a" />
+    <link rel="canonical" href="https://bugcurator.github.io/" />
+
+    <!-- ============================================================
+         FAVICON & APP ICONS
+    ============================================================ -->
+    <link rel="icon" type="image/png" href="./assets/webpage-icon.png" />
+    <link rel="apple-touch-icon" href="./assets/webpage-icon.png" />
+    <meta name="msapplication-TileImage" content="./assets/webpage-icon.png" />
+    <meta name="msapplication-TileColor" content="#0f0f1a" />
+
+    <!-- ============================================================
+         OPEN GRAPH / FACEBOOK / LINKEDIN / THREADS / WHATSAPP
+         (All OG-compatible platforms share these tags)
+    ============================================================ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bugcurator.github.io/" />
+    <meta
+      property="og:title"
+      content="Ubaid Ahmad | Full-Stack MERN Developer & UI/UX Designer"
+    />
+    <meta
+      property="og:description"
+      content="Full-Stack MERN Developer | Agentic AI & UI/UX Design | Transforming complex business needs into seamless, scalable digital experiences for startups and enterprises."
+    />
+    <meta property="og:image" content="./assets/ubaidahmad-img.jpg" />
+    <meta
+      property="og:image:secure_url"
+      content="./assets/ubaidahmad-img.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Ubaid Ahmad — Full-Stack MERN Developer & UI/UX Designer"
+    />
+    <meta property="og:site_name" content="Ubaid Ahmad Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============================================================
+         TWITTER / X CARD
+    ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tiredofcaffeine" />
+    <meta name="twitter:creator" content="@tiredofcaffeine" />
+    <meta
+      name="twitter:title"
+      content="Ubaid Ahmad | Full-Stack MERN Developer & UI/UX Designer"
+    />
+    <meta
+      name="twitter:description"
+      content="Full-Stack MERN Developer specializing in Agentic AI & UI/UX Design. Building human-focused digital experiences for startups."
+    />
+    <meta name="twitter:image" content="./assets/ubaidahmad-img.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Ubaid Ahmad — Full-Stack MERN Developer & UI/UX Designer"
+    />
+    <meta name="twitter:url" content="https://bugcurator.github.io/" />
+
+    <!-- ============================================================
+         LINKEDIN SPECIFIC
+    ============================================================ -->
+    <meta property="linkedin:owner" content="ubaid-ahmad-07423b2a8" />
+
+    <!-- ============================================================
+         INSTAGRAM / THREADS (Meta platforms — inherit OG tags above)
+         Extra app-specific deep links
+    ============================================================ -->
+    <meta property="al:web:url" content="https://bugcurator.github.io/" />
+    <meta property="al:ios:app_name" content="Ubaid Ahmad Portfolio" />
+    <meta property="al:android:app_name" content="Ubaid Ahmad Portfolio" />
+
+    <!-- ============================================================
+         PINTEREST RICH PINS
+    ============================================================ -->
+    <meta name="pinterest-rich-pin" content="true" />
+    <meta property="og:rich_attachment" content="true" />
+
+    <!-- ============================================================
+         DISCORD — uses OG tags; embed colour accent
+    ============================================================ -->
+    <meta name="theme-color" content="#5865F2" />
+    <!-- Discord blurple for embeds -->
+
+    <!-- ============================================================
+         GITHUB — profile / repo discovery
+    ============================================================ -->
+    <meta name="github:owner" content="bugcurator" />
+
+    <!-- ============================================================
+         BEHANCE — Open Graph is sufficient; additional SEO hint
+    ============================================================ -->
+    <meta name="behance:creator" content="ubaidahmad" />
+
+    <!-- ============================================================
+         SUBSTACK — Article/newsletter preview meta
+    ============================================================ -->
+    <meta property="article:author" content="Ubaid Ahmad" />
+    <meta property="article:tag" content="MERN Stack" />
+    <meta property="article:tag" content="UI/UX Design" />
+    <meta property="article:tag" content="Agentic AI" />
+    <meta property="article:tag" content="Web Development" />
+    <meta property="article:tag" content="Freelance" />
+
+    <!-- ============================================================
+         QUORA — Open Graph sufficient; SEO keyword reinforcement
+    ============================================================ -->
+    <meta name="quora:creator" content="Ubaid-Ahmad-217" />
+
+    <!-- ============================================================
+         WHATSAPP (inherits OG; explicit og:image size ensures preview)
+         Already covered above — no additional tags needed.
+    ============================================================ -->
+
+    <!-- ============================================================
+         SCHEMA.ORG STRUCTURED DATA (Google, Bing, Rich Results)
+         Helps all platforms that parse JSON-LD for rich previews
+    ============================================================ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ubaid Ahmad",
+        "url": "https://bugcurator.github.io/",
+        "image": "./assets/ubaidahmad-img.jpg",
+        "sameAs": [
+          "https://github.com/bugcurator",
+          "https://www.linkedin.com/in/ubaid-ahmad-07423b2a8",
+          "https://www.instagram.com/tiredofcaffeine",
+          "https://www.facebook.com/share/19kVFqjhpN/",
+          "https://www.threads.com/@tiredofcaffeine",
+          "https://pin.it/52bnrZwUL",
+          "https://www.quora.com/profile/Ubaid-Ahmad-217",
+          "https://discord.com/users/1419554765783961621"
+        ],
+        "jobTitle": "Full-Stack MERN Developer & UI/UX Designer",
+        "description": "Full-Stack MERN Developer specializing in Agentic AI and UI/UX Design. Transforming complex business needs into seamless, scalable digital experiences.",
+        "knowsAbout": [
+          "React.js",
+          "Node.js",
+          "MongoDB",
+          "Express.js",
+          "Tailwind CSS",
+          "UI/UX Design",
+          "Figma",
+          "Agentic AI",
+          "Prompt Engineering",
+          "REST APIs"
+        ],
+        "email": "iubaidahmad303@gmail.com",
+        "nationality": "Pakistani"
+      }
+    </script>
+
+    <!-- ============================================================
+         PERFORMANCE & PRECONNECTS
+    ============================================================ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
       rel="stylesheet"
     />
+
+    <!-- ============================================================
+         SCRIPTS & STYLES
+    ============================================================ -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
