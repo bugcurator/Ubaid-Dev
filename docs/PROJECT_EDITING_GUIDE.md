@@ -4,9 +4,9 @@ This document explains how to safely edit, extend, and maintain the
 portfolio system.
 
 The project follows a data driven architecture. Most dynamic content
-lives inside `scripts/main.js`. Layout structure is defined in
+lives inside `scripts/script.js`. Layout structure is defined in
 `index.html`. Styling and animation rules are defined in
-`styles/main.css`.
+`styles/style.css`.
 
 Do not edit randomly. Follow the rules below to avoid breaking rendering
 logic.
@@ -18,8 +18,8 @@ logic.
 ### Core Files
 
 - `index.html` → Static layout skeleton and SEO structure\
-- `styles/main.css` → Design system, animations, layout rules\
-- `scripts/main.js` → Data arrays, state logic, DOM rendering\
+- `styles/style.css` → Design system, animations, layout rules\
+- `scripts/script.js` → Data arrays, state logic, DOM rendering\
 - `assets/` → Images, icons, fonts\
 - `docs/PROJECT_EDITING_GUIDE.md` → Editing documentation
 
@@ -100,7 +100,7 @@ Add inside the counters section:
 
 Step 2: Update JS
 
-Inside `initCounters()` in `scripts/main.js`, add:
+Inside `initCounters()` in `scripts/script.js`, add:
 
 `animateCounter("awardsCount", 10, 1500);`
 
@@ -112,7 +112,7 @@ Third parameter = duration in milliseconds
 ## 4. Adding Skills
 
 Skills are stored inside the `skillCategories` array in
-`scripts/main.js`.
+`scripts/script.js`.
 
 ### Add Skill to Existing Category
 
@@ -236,7 +236,7 @@ Do not modify the container ID `clientsGrid`.
 
 ## 9. Styling Rules
 
-All theme control is inside `styles/main.css`.
+All theme control is inside `styles/style.css`.
 
 ### Change Accent Color
 
