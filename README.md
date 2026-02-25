@@ -31,8 +31,8 @@ style, and logic.
 ### Structure
 
 - `index.html` contains semantic layout and SEO metadata.
-- `styles/main.css` defines the design system and animation logic.
-- `scripts/main.js` handles content data, state logic, and DOM
+- `styles/style.css` defines the design system and animation logic.
+- `scripts/script.js` handles content data, state logic, and DOM
   rendering.
 - `assets/` stores images, icons, and fonts.
 - `docs/PROJECT_EDITING_GUIDE.md` contains detailed extension
@@ -48,7 +48,7 @@ JavaScript handles data and behavior.
 
 ## Data Driven Rendering
 
-All dynamic sections are powered by arrays inside `scripts/main.js`:
+All dynamic sections are powered by arrays inside `scripts/script.js`:
 
 - `skillCategories`
 - `projects`
@@ -106,7 +106,7 @@ performance without heavy dependencies.
 
 ### Color Logic
 
-Defined in CSS variables inside `styles/main.css`.
+Defined in CSS variables inside `styles/style.css`.
 
 Primary background: #1a1a1a\
 Accent color: #d4af37
@@ -155,7 +155,7 @@ communicate scope clearly.
 
 ### Add a New Project
 
-Open `scripts/main.js`.\
+Open `scripts/script.js`.\
 Find the `projects` array.\
 Append a new object with:
 
@@ -228,10 +228,10 @@ deploys without configuration.
     │   └── fonts/
     │
     ├── styles/
-    │   └── main.css
+    │   └── style.css
     │
     ├── scripts/
-    │   └── main.js
+    │   └── script.js
     │
     ├── docs/
     │   └── PROJECT_EDITING_GUIDE.md
