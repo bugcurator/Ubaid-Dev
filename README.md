@@ -1,6 +1,6 @@
-# Ubaid Ahmad — Full-Stack MERN Developer & Agentic AI Specialist (2026 Edition)
+# Ubaid Ahmad - Full-Stack MERN Developer & Agentic AI Specialist (2026 Edition)
 
-A high-performance, single-page portfolio built on a **data-driven vanilla JavaScript architecture**. Engineered for speed, structured for long-term scalability, and designed without a single build dependency. The 2026 edition introduces a premium 3D interaction layer, direction-aware scroll animations, smart pagination, and a universal shimmer-gradient design system — all written in pure HTML, CSS, and JavaScript.
+A high-performance, single-page portfolio built on a **data-driven vanilla JavaScript architecture**. Engineered for speed, structured for long-term scalability, and designed without a single build dependency. The 2026 edition introduces a premium 3D interaction layer, direction-aware scroll animations, smart pagination, and a universal shimmer-gradient design system - all written in pure HTML, CSS, and JavaScript.
 
 ---
 
@@ -14,7 +14,7 @@ A high-performance, single-page portfolio built on a **data-driven vanilla JavaS
 
 ### Dynamic 3D Coin-Toss Profile
 
-The hero profile image is now a fully interactive 3D flip card. On hover, `.coin-inner` performs a **720-degree rotation** (two full Y-axis turns) in `0.9s` using a springy `cubic-bezier(0.34, 1.56, 0.64, 1)` easing — the same "flick" physics used in native mobile UI. A gold-gradient **"TRUSTED EXPERT"** verification badge renders on the reverse face, with a stacked `fa-certificate` + `fa-check` icon composited through `z-index` layering. `perspective: 1500px` and `backface-visibility: hidden` on both faces ensure mathematically correct depth and zero bleed-through during the spin.
+The hero profile image is now a fully interactive 3D flip card. On hover, `.coin-inner` performs a **720-degree rotation** (two full Y-axis turns) in `0.9s` using a springy `cubic-bezier(0.34, 1.56, 0.64, 1)` easing - the same "flick" physics used in native mobile UI. A gold-gradient **"TRUSTED EXPERT"** verification badge renders on the reverse face, with a stacked `fa-certificate` + `fa-check` icon composited through `z-index` layering. `perspective: 1500px` and `backface-visibility: hidden` on both faces ensure mathematically correct depth and zero bleed-through during the spin.
 
 ### Direction-Aware Scroll Animations
 
@@ -34,7 +34,7 @@ All `.glass-card`, `.cta-button`, `.load-more-btn`, `.connect-btn`, `.modal-link
 
 ### Interactive Collaboration Carousel
 
-The clients carousel now accepts a `url` field per entry and wraps each logo in a clickable `<a>` tag. `mouseenter` sets `animationPlayState: paused` on the track; `mouseleave` resumes it — giving users time to read and click logos without fighting the animation.
+The clients carousel now accepts a `url` field per entry and wraps each logo in a clickable `<a>` tag. `mouseenter` sets `animationPlayState: paused` on the track; `mouseleave` resumes it - giving users time to read and click logos without fighting the animation.
 
 ---
 
@@ -140,11 +140,11 @@ The `IntersectionObserver` in `script.js` handles everything automatically.
 
 ## Performance
 
-- **IntersectionObserver** — animations fire only when elements enter the viewport; no `scroll` event-loop polling.
-- **Passive scroll listener** — the direction-tracking listener is registered as `{ passive: true }` to never block rendering.
-- **Lazy loading** — project images use `loading="lazy"`.
-- **Event delegation** — modal open/close is handled with minimal listeners.
-- **Zero build step** — no bundler, no transpiler. One file open = running site.
+- **IntersectionObserver** - animations fire only when elements enter the viewport; no `scroll` event-loop polling.
+- **Passive scroll listener** - the direction-tracking listener is registered as `{ passive: true }` to never block rendering.
+- **Lazy loading** - project images use `loading="lazy"`.
+- **Event delegation** - modal open/close is handled with minimal listeners.
+- **Zero build step** - no bundler, no transpiler. One file open = running site.
 
 ---
 
@@ -168,7 +168,7 @@ Navigate to `http://localhost:8080` (or the port shown in terminal).
 
 ## Deployment
 
-This is a fully static site — push and deploy with no configuration:
+This is a fully static site - push and deploy with no configuration:
 
 | Platform     | Method                                                  |
 | ------------ | ------------------------------------------------------- |
@@ -194,10 +194,10 @@ See **`docs/PROJECT_EDITING_GUIDE.md`** for the full reference. Quick summary:
 
 This project favors:
 
-- **Simplicity over abstraction** — if vanilla JS solves it cleanly, no library is added.
-- **Data-driven rendering** — arrays own all content; functions own all layout logic.
-- **Performance over decoration** — every animation serves a UX purpose.
-- **Clear structure over framework complexity** — the codebase is readable by any developer in under 10 minutes.
+- **Simplicity over abstraction** - if vanilla JS solves it cleanly, no library is added.
+- **Data-driven rendering** - arrays own all content; functions own all layout logic.
+- **Performance over decoration** - every animation serves a UX purpose.
+- **Clear structure over framework complexity** - the codebase is readable by any developer in under 10 minutes.
 
 Strong structure signals strong thinking.
 
