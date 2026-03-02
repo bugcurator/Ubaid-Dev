@@ -6,7 +6,7 @@ A high-performance, single-page portfolio built on a **data-driven vanilla JavaS
 
 ## Live Preview
 
-**[bugcurator.github.io](https://bugcurator.github.io/)**
+**[bugcurator.github.io](https://bugcurator.github.io/Ubaid-Dev)**
 
 ---
 
@@ -22,15 +22,15 @@ A passive `scroll` event listener continuously tracks `_lastScrollY` vs `_curren
 
 ### Smart Experience Loader
 
-The Experience section uses a constant-driven pagination model. `INITIAL_EXP_COUNT = 2` controls the initial render; `EXP_BATCH_SIZE = 3` controls how many cards are revealed per click. A `updateExperienceButtons()` function syncs both the **Show More** and **Show Less** buttons on every state change — dynamically updating the label text to reflect the next batch count (e.g., "Show 3 More Experience"). The **Show Less** button smooth-scrolls the user back to the section header on collapse. The logic is array-length-agnostic: it works whether there are 5 or 80 experience entries.
+The Experience section uses a constant-driven pagination model. `INITIAL_EXP_COUNT = 2` controls the initial render; `EXP_BATCH_SIZE = 3` controls how many cards are revealed per click. A `updateExperienceButtons()` function syncs both the **Show More** and **Show Less** buttons on every state change - dynamically updating the label text to reflect the next batch count (e.g., "Show 3 More Experience"). The **Show Less** button smooth-scrolls the user back to the section header on collapse. The logic is array-length-agnostic: it works whether there are 5 or 80 experience entries.
 
 ### Auto-Pinned Projects
 
-The first three entries in the `window.projects` array are automatically detected by `renderProjects()` via `projectsData.indexOf(project)` and receive a gold `.pinned-badge` ribbon injected into the top-right corner of their card. No manual tagging required — repositioning a project in the array is all it takes to change which three are pinned.
+The first three entries in the `window.projects` array are automatically detected by `renderProjects()` via `projectsData.indexOf(project)` and receive a gold `.pinned-badge` ribbon injected into the top-right corner of their card. No manual tagging required - repositioning a project in the array is all it takes to change which three are pinned.
 
 ### Universal Shimmer-Gradient Hover
 
-All `.glass-card`, `.cta-button`, `.load-more-btn`, `.connect-btn`, `.modal-link`, and `.category-btn` elements now carry a CSS `::after` pseudo-element — a `skewX(-18deg)` diagonal stripe of `rgba(212, 175, 55, 0.18)` that sweeps left-to-right on hover. `.modal-content` is deliberately excluded via `:not(.modal-content)` to preserve its `overflow-y: auto` modal scroll.
+All `.glass-card`, `.cta-button`, `.load-more-btn`, `.connect-btn`, `.modal-link`, and `.category-btn` elements now carry a CSS `::after` pseudo-element - a `skewX(-18deg)` diagonal stripe of `rgba(212, 175, 55, 0.18)` that sweeps left-to-right on hover. `.modal-content` is deliberately excluded via `:not(.modal-content)` to preserve its `overflow-y: auto` modal scroll.
 
 ### Interactive Collaboration Carousel
 
@@ -112,7 +112,7 @@ To add content, append a correctly structured object to the relevant array. No H
 | ---------------- | ----------------------------------------- | ----------------------------------- |
 | `--bg-dark`      | `#1a1a1a`                                 | Page background                     |
 | `--text-dark`    | `#e8e8e8`                                 | Body text                           |
-| `--accent-dark`  | `#d4af37`                                 | Gold accent — borders, glows, icons |
+| `--accent-dark`  | `#d4af37`                                 | Gold accent - borders, glows, icons |
 | `--glass-dark`   | `rgba(255,255,255,0.05)`                  | Card fill                           |
 | `--border-dark`  | `rgba(212,175,55,0.2)`                    | Card borders                        |
 | `--shadow-color` | `rgba(212,175,55,0.5)`                    | Glow shadows                        |
