@@ -1,5 +1,5 @@
 // =========================================================
-// SKILLS — Categorized Tabbed (Project 2 interaction, Project 1 data)
+//               SKILLS - Categorized Tabbed
 // =========================================================
 const skillCategories = [
   {
@@ -53,21 +53,10 @@ const skillCategories = [
       { name: "Team Management" },
     ],
   },
-  // Add More
-  // {
-  //   category: "Testing",
-  //   skills: [
-  //     { name: "Jest (Placeholder)" },
-  //     { name: "Unit Testing (Placeholder)" },
-  //     { name: "Integration Testing (Placeholder)" },
-  //     { name: "Debugging & Profiling (Placeholder)" },
-  //     { name: "Browser DevTools (Placeholder)" },
-  //   ],
-  // },
 ];
 
 // =========================================================
-// EXPERIENCE
+//                          EXPERIENCE
 // =========================================================
 const experience = [
   {
@@ -75,7 +64,7 @@ const experience = [
     company: "University of Swabi",
     period: "Oct 2023 - Sep 2024",
     description:
-      "Began academic journey in Computer Science, focusing on foundational programming in C++ and Python. Developed logical thinking, problem-solving skills, and a deep understanding of core computing principles — laying the groundwork for a strong development career.",
+      "Began academic journey in Computer Science, focusing on foundational programming in C++ and Python. Developed logical thinking, problem-solving skills, and a deep understanding of core computing principles - laying the groundwork for a strong development career.",
     isInitiallyVisible: true,
   },
   {
@@ -86,146 +75,53 @@ const experience = [
       "Delivering end-to-end digital solutions: from human-centered UI/UX design in Figma to full-stack MERN applications with RESTful APIs. Specializing in Agentic AI workflows, responsive interfaces, and scalable architectures that turn complex startup needs into seamless digital experiences.",
     isInitiallyVisible: true,
   },
-  // Add more
-  // {
-  //   title: "Open Source Contributor (Placeholder)",
-  //   company: "Community Projects",
-  //   period: "2025 - Present",
-  //   description:
-  //     "Placeholder: Contributing to open-source frontend and tooling projects. Engaging with the developer community through pull requests, code reviews, and documentation improvements.",
-  //   isInitiallyVisible: false,
-  // },
 ];
 
 // =========================================================
-// PROJECTS
-// =========================================================
-const projects = [
-  {
-    id: 1,
-    title: "DevOps Engineer Portfolio - Muhammad Dawood",
-    summary:
-      "Responsive DevOps Portfolio showcasing CI/CD, cloud tools, automation expertise, and smooth UI/UX, all built with HTML, CSS, and JavaScript.",
-    tech: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Responsive Design",
-      "Scroll-based Animation",
-      "Landing Page Design",
-    ],
-    type: ["client-based", "featured", "maintenance"],
-    image: "./assets/muhammad-dawood-screenshot.png",
-    details:
-      "A sleek, responsive portfolio built for Muhammad Dawood, a DevOps Engineer, using HTML, CSS, and JavaScript. It highlights his expertise in CI/CD, cloud infrastructure, and automation tools through well-structured sections, interactive UI, and smooth animations crafted to reflect both technical depth and professional identity.",
-    demo: "https://idavidkhan.github.io/DevOps/",
-    github: "https://github.com/idavidkhan/DevOps",
-  },
-  {
-    id: 2,
-    title: "StudyStation - WhatsApp Channel Site",
-    summary:
-      "Responsive multi-page website with smooth animations, soft UI/UX, and user-friendly navigation, built using HTML, Tailwind CSS, and JavaScript.",
-    tech: [
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "JavaScript",
-      "Responsive Design",
-      "UI/UX Design",
-      "Multi-Page Architecture",
-    ],
-    type: ["personal", "educational", "featured", "maintenance"],
-    image: "./assets/study-station-screenshot.png",
-    details:
-      "StudyStation is a multi-page web interface designed for a WhatsApp learning channel. Built with HTML, Tailwind CSS, and JavaScript, it features responsive layouts, fluid animations, and a clean, soft aesthetic. The site focuses on delivering a seamless and engaging browsing experience, structured to showcase resources, updates, and channel insights effectively.",
-    demo: "https://bugcurator.github.io/StudyStation/",
-    github: "https://github.com/bugcurator/StudyStation",
-  },
-  {
-    id: 3,
-    title: "Hadaf Immigration - Study Abroad Consultancy UI",
-    summary:
-      "Single-page responsive design with smooth UI/UX, crafted for educational consultancies. Fully animated and optimized for all screen sizes.",
-    tech: [
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "JavaScript",
-      "Responsive Design",
-      "UI/UX Design",
-      "Scroll-based Animation",
-      "Landing Page Design",
-    ],
-    type: ["experience-based", "archive", "sale"],
-    image: "./assets/hadaf-immigration-screenshot.png",
-    details:
-      "A modern, single-page website designed for Hadaf Immigration Consultancy, which assists students in pursuing education abroad. This ready-to-use UI emphasizes clarity, smooth animations, and professional layout to attract and engage potential clients. Ideal for any consultancy looking to establish a trustworthy digital presence. Fully responsive and easy to customize or deploy.",
-    demo: "https://bugcurator.github.io/Hadaf-Immigration/",
-    github: "https://github.com/bugcurator/Hadaf-Immigration",
-  },
-  // Add more
-  // {
-  //   id: 4,
-  //   title: "SaaS Dashboard UI (Placeholder)",
-  //   summary:
-  //     "Placeholder: A feature-rich SaaS analytics dashboard with real-time charts, dark mode, and role-based access — built with React and Tailwind CSS.",
-  //   tech: [
-  //     "React.js",
-  //     "Tailwind CSS",
-  //     "Node.js",
-  //     "MongoDB",
-  //     "Chart.js",
-  //     "REST APIs",
-  //   ],
-  //   type: ["personal", "fullstack", "demo"],
-  //   image: "./assets/muhammad-dawood-screenshot.png",
-  //   details:
-  //     "Placeholder: A comprehensive SaaS dashboard template featuring analytics widgets, user management, dark/light theming, and responsive layout. Intended as a starter kit for SaaS founders looking for a production-ready frontend.",
-  //   demo: "#",
-  //   github: "#",
-  // },
-];
-
-// =========================================================
-// CLIENTS (from Project 3)
+//               CLIENTS - infinite carousel
 // =========================================================
 const clients = [
   {
     name: "TechCorp",
     logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=TechCorp",
+    url: "https://techcorp.com",
   },
   {
     name: "DesignHub",
     logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=DesignHub",
+    url: "https://designhub.io",
   },
   {
     name: "StartupLab",
     logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=StartupLab",
+    url: "https://startuplab.co",
   },
   {
     name: "CreativeStudio",
     logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=CreativeStudio",
+    url: "https://creativestudio.design",
   },
   {
     name: "DevAgency",
     logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=DevAgency",
+    url: "https://devagency.dev",
   },
   {
     name: "NovaTech",
     logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=NovaTech",
+    url: "https://novatech.io",
   },
 ];
 
 // =========================================================
-// TESTIMONIALS
+//                        TESTIMONIALS
 // =========================================================
 const testimonials = [
   {
     name: "Muhammad Dawood",
     role: "Former DevOps Intern @TechCreator",
     avatar: "./assets/muhammad-dawood-img.jpg",
-    text: "I asked for a simple portfolio, but what I received was thoughtful, clean, and far beyond expectations. The attention to detail, responsiveness, and creative touch truly impressed me. It's rare to find someone who listens, learns, and delivers so well — especially so early in their journey. I'm genuinely happy with the result and would gladly collaborate again. Highly recommended for any frontend work!",
+    text: "I asked for a simple portfolio, but what I received was thoughtful, clean, and far beyond expectations. The attention to detail, responsiveness, and creative touch truly impressed me. It's rare to find someone who listens, learns, and delivers so well - especially so early in their journey. I'm genuinely happy with the result and would gladly collaborate again. Highly recommended for any frontend work!",
     stars: 5,
   },
   {
@@ -246,35 +142,113 @@ const testimonials = [
     name: "Umair Amjad",
     role: "Software Engineer at TechCreator",
     avatar: "./assets/umair-amjad.jpg",
-    text: "Getting the chance to work with Ubaid Ahmad has been genuinely uplifting. He brings clarity, focus, and a deep sense of responsibility to everything he does. Even when things get hectic, he stays calm and thoughtful, always looking for smart solutions. What really stands out is his hunger to learn and grow — it makes him adaptable and sharp in fast-moving environments. Ubaid is reliable, easy to work with, and someone you're glad to have on your team.",
+    text: "Getting the chance to work with Ubaid Ahmad has been genuinely uplifting. He brings clarity, focus, and a deep sense of responsibility to everything he does. Even when things get hectic, he stays calm and thoughtful, always looking for smart solutions. What really stands out is his hunger to learn and grow - it makes him adaptable and sharp in fast-moving environments. Ubaid is reliable, easy to work with, and someone you're glad to have on your team.",
     stars: 5,
   },
-  // Add more
-  // {
-  //   name: "Sarah Mitchell (Placeholder)",
-  //   role: "Product Manager at InnovateCo",
-  //   avatar: "./assets/muhammad-dawood-img.jpg",
-  //   text: "Placeholder: Working with Ubaid on our product's frontend was a great experience. He delivered a polished, responsive interface ahead of schedule. His communication was clear, and he proactively suggested improvements that enhanced user experience. Will definitely work together again.",
-  //   stars: 5,
-  // },
 ];
 
 // =========================================================
-// STATE — Active skills category
+//                           STATE
 // =========================================================
 let currentSkillCategory = skillCategories[0].category;
 
 // =========================================================
-// UTILITY — Animated Counter
+//          SCROLL DIRECTION TRACKING
+// Continuously updated by a passive scroll listener so the
+// IntersectionObserver knows which way the user is scrolling.
+// =========================================================
+let _lastScrollY = window.scrollY;
+let _currentScrollY = window.scrollY;
+window.addEventListener(
+  "scroll",
+  () => {
+    _lastScrollY = _currentScrollY;
+    _currentScrollY = window.scrollY;
+  },
+  { passive: true },
+);
+
+// =========================================================
+//            EXPERIENCE PAGINATION CONSTANTS
+// =========================================================
+const INITIAL_EXP_COUNT = 2; // cards shown on first render
+const EXP_BATCH_SIZE = 3; // cards revealed per "Load More" click
+
+// =========================================================
+//            BI-DIRECTIONAL SCROLL OBSERVER
+// Stored at module level so loadMoreExperience can reuse it.
+// =========================================================
+let scrollObserver = null;
+
+/**
+ * initScrollAnimations
+ * Registers elements with the bi-directional IntersectionObserver.
+ * Pass an array/NodeList to register specific elements (e.g. newly
+ * revealed "Load More" items), or call with no argument to register
+ * every .animate-on-scroll element on the page.
+ *
+ * Bi-directional logic:
+ *   - Scrolling DOWN → element enters with "from-below" class (slides up)
+ *   - Scrolling UP   → element enters with "from-above" class (slides down)
+ *   - On exit the direction classes are cleared so re-entry re-evaluates.
+ */
+function initScrollAnimations(elements = null) {
+  if (!scrollObserver) {
+    scrollObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Determine direction at the moment of entry
+            const scrollingDown = _currentScrollY >= _lastScrollY;
+
+            // Clear any previous direction class
+            entry.target.classList.remove("from-below", "from-above");
+
+            // Set directional class BEFORE adding visible so the
+            // CSS transition starts from the correct offset position.
+            entry.target.classList.add(
+              scrollingDown ? "from-below" : "from-above",
+            );
+
+            // requestAnimationFrame ensures the browser has painted the
+            // initial offset before the transition kicks in.
+            requestAnimationFrame(() => {
+              entry.target.classList.add("visible");
+            });
+          } else {
+            // Remove all state so the next entry re-animates correctly.
+            entry.target.classList.remove(
+              "visible",
+              "from-below",
+              "from-above",
+            );
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px",
+      },
+    );
+  }
+
+  const els = elements || document.querySelectorAll(".animate-on-scroll");
+  els.forEach((el) => {
+    el.classList.remove("visible", "from-below", "from-above");
+    scrollObserver.observe(el);
+  });
+}
+
+// =========================================================
+//                UTILITY - Animated Counter
 // =========================================================
 function animateCounter(element, target, duration = 1500) {
-  const start = 0;
+  if (!element) return;
   let startTime = null;
-
   function step(timestamp) {
     if (!startTime) startTime = timestamp;
     const progress = timestamp - startTime;
-    const current = Math.min(start + (target * progress) / duration, target);
+    const current = Math.min((target * progress) / duration, target);
     element.textContent = Math.floor(current);
     if (progress < duration) {
       window.requestAnimationFrame(step);
@@ -282,41 +256,11 @@ function animateCounter(element, target, duration = 1500) {
       element.textContent = target;
     }
   }
-
   window.requestAnimationFrame(step);
 }
 
 // =========================================================
-// UTILITY — Project type → CSS class
-// =========================================================
-function getProjectTypeClass(type) {
-  const map = {
-    "client-based": "type-client",
-    personal: "type-personal",
-    "experience-based": "type-experience",
-    sale: "type-sale",
-    maintenance: "type-maintenance",
-    archive: "type-archive",
-    featured: "type-featured",
-    "ui-ux": "type-ui-ux",
-    "design-prototype": "type-design-prototype",
-    frontend: "type-frontend",
-    backend: "type-backend",
-    fullstack: "type-fullstack",
-    devops: "type-devops",
-    demo: "type-demo",
-    "team-project": "type-team",
-    "solo-project": "type-solo",
-    clone: "type-clone",
-    educational: "type-educational",
-    template: "type-template",
-    "micro-project": "type-micro",
-  };
-  return map[type] || "";
-}
-
-// =========================================================
-// MOBILE MENU
+//                        MOBILE MENU
 // =========================================================
 function initMobileMenu() {
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
@@ -324,30 +268,30 @@ function initMobileMenu() {
   const closeMobileMenu = document.getElementById("closeMobileMenu");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
+  if (!mobileMenuBtn || !mobileMenu || !closeMobileMenu) return;
+
   mobileMenuBtn.addEventListener("click", () =>
     mobileMenu.classList.add("active"),
   );
   closeMobileMenu.addEventListener("click", () =>
     mobileMenu.classList.remove("active"),
   );
-
   mobileMenu.addEventListener("click", (e) => {
     if (e.target === mobileMenu) mobileMenu.classList.remove("active");
   });
-
   mobileNavLinks.forEach((link) => {
     link.addEventListener("click", () => mobileMenu.classList.remove("active"));
   });
 }
 
 // =========================================================
-// RENDER SKILLS — Tabbed layout (from Project 2)
+//              RENDER SKILLS - Tabbed layout
 // =========================================================
 function renderSkills() {
   const bar = document.getElementById("skillsCategoryBar");
   const grid = document.getElementById("skillsDisplayGrid");
+  if (!bar || !grid) return;
 
-  // Render category tab buttons
   bar.innerHTML = skillCategories
     .map(
       (cat) => `
@@ -357,13 +301,10 @@ function renderSkills() {
         role="tab"
         aria-selected="${cat.category === currentSkillCategory}"
         aria-label="Show ${cat.category} skills"
-      >
-        ${cat.category}
-      </button>`,
+      >${cat.category}</button>`,
     )
     .join("");
 
-  // Attach click handlers to buttons
   bar.querySelectorAll(".category-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const cat = btn.dataset.category;
@@ -373,11 +314,9 @@ function renderSkills() {
     });
   });
 
-  // Render skill cards for active category
   const activeData = skillCategories.find(
     (c) => c.category === currentSkillCategory,
   );
-
   if (!activeData) return;
 
   grid.innerHTML = activeData.skills
@@ -387,27 +326,25 @@ function renderSkills() {
         class="skill-card glass-card skill-card-anim"
         style="animation-delay: ${i * 0.07}s"
         aria-label="${s.name}"
-      >
-        <span>${s.name}</span>
-      </div>`,
+      ><span>${s.name}</span></div>`,
     )
     .join("");
 }
 
 // =========================================================
-// RENDER EXPERIENCE
+//                    RENDER EXPERIENCE
+// Always renders the full dataset but hides items beyond
+// INITIAL_EXP_COUNT. Button state is managed separately.
 // =========================================================
 function renderExperience() {
   const timeline = document.getElementById("experienceTimeline");
-  const loadMoreBtn = document.getElementById("loadMoreExperience");
-
-  const visibleExperiences = experience.filter((e) => e.isInitiallyVisible);
+  if (!timeline) return;
 
   timeline.innerHTML = experience
     .map(
-      (exp) => `
+      (exp, index) => `
       <div class="experience-item glass-card animate-on-scroll slide-up${
-        exp.isInitiallyVisible ? "" : " hidden"
+        index >= INITIAL_EXP_COUNT ? " hidden" : ""
       }">
         <h3 class="experience-title">${exp.title}</h3>
         <p class="experience-company">${exp.company}</p>
@@ -417,45 +354,112 @@ function renderExperience() {
     )
     .join("");
 
-  if (visibleExperiences.length === experience.length) {
-    loadMoreBtn.style.display = "none";
-  } else {
-    loadMoreBtn.style.display = "block";
+  updateExperienceButtons();
+}
+
+// =========================================================
+//          EXPERIENCE - Dual-button state sync
+// =========================================================
+function updateExperienceButtons() {
+  const loadMoreBtn = document.getElementById("loadMoreExperience");
+  const showLessBtn = document.getElementById("showLessExperience");
+  const total = experience.length;
+  const visibleCount = document.querySelectorAll(
+    "#experienceTimeline .experience-item:not(.hidden)",
+  ).length;
+
+  // "Load More" only visible when hidden cards remain
+  if (loadMoreBtn) {
+    loadMoreBtn.style.display = visibleCount >= total ? "none" : "inline-flex";
+    // Update label to reflect how many remain
+    const remaining = total - visibleCount;
+    const nextBatch = Math.min(remaining, EXP_BATCH_SIZE);
+    loadMoreBtn.innerHTML = `<i class="fas fa-chevron-down"></i> Show ${nextBatch} More Experience`;
+  }
+
+  // "Show Less" only visible once we're beyond the initial count
+  if (showLessBtn) {
+    showLessBtn.style.display =
+      visibleCount > INITIAL_EXP_COUNT ? "inline-flex" : "none";
   }
 }
 
 // =========================================================
-// EXPERIENCE — Load More
+//              EXPERIENCE - Load More
+// Reveals up to EXP_BATCH_SIZE hidden items at a time.
 // =========================================================
 function loadMoreExperience() {
-  const hiddenItems = document.querySelectorAll(
-    "#experienceTimeline .experience-item.hidden",
+  const hiddenItems = Array.from(
+    document.querySelectorAll("#experienceTimeline .experience-item.hidden"),
   );
+  hiddenItems.slice(0, EXP_BATCH_SIZE).forEach((item) => {
+    item.classList.remove("hidden");
+    initScrollAnimations([item]);
+  });
+  updateExperienceButtons();
+}
 
-  const itemsToShow = 2;
-  for (let i = 0; i < Math.min(itemsToShow, hiddenItems.length); i++) {
-    hiddenItems[i].classList.remove("hidden");
-    hiddenItems[i].classList.add("animate-on-scroll", "slide-up");
-    initScrollAnimations([hiddenItems[i]]);
-  }
-
-  const remaining = document.querySelectorAll(
-    "#experienceTimeline .experience-item.hidden",
+// =========================================================
+//            EXPERIENCE - Show Less
+// Collapses back to the initial INITIAL_EXP_COUNT cards.
+// =========================================================
+function showLessExperience() {
+  const allItems = document.querySelectorAll(
+    "#experienceTimeline .experience-item",
   );
-  if (remaining.length === 0) {
-    document.getElementById("loadMoreExperience").style.display = "none";
+  allItems.forEach((item, index) => {
+    if (index >= INITIAL_EXP_COUNT) item.classList.add("hidden");
+  });
+  updateExperienceButtons();
+
+  // Gently scroll back to the top of the Experience section
+  const section = document.getElementById("experience");
+  if (section) {
+    const header = document.querySelector(".glass-header");
+    const headerHeight = header ? header.offsetHeight : 0;
+    window.scrollTo({
+      top:
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        (headerHeight + 16),
+      behavior: "smooth",
+    });
   }
 }
 
 // =========================================================
-// RENDER PROJECTS
+//                     RENDER PROJECTS
+// index.html  → only "featured" tagged projects (max 3)
+// projects.html → full database from window.projects
 // =========================================================
 function renderProjects() {
   const projectsGrid = document.getElementById("projectsGrid");
+  if (!projectsGrid) return;
 
-  projectsGrid.innerHTML = projects
-    .map(
-      (project) => `
+  const projectsData = window.projects || [];
+
+  const isProjectsPage = window.location.pathname.includes("projects.html");
+  const isSubPage = window.location.pathname.includes("/pages/");
+  const resolveImagePath = (path) => (isSubPage ? `../${path}` : path);
+
+  const projectsToRender = isProjectsPage
+    ? projectsData
+    : projectsData
+        .filter((p) => p.type && p.type.includes("featured"))
+        .slice(0, 3);
+
+  if (projectsToRender.length === 0) {
+    projectsGrid.innerHTML = `<p style="opacity:0.6;text-align:center;width:100%;">No projects to display yet.</p>`;
+    return;
+  }
+
+  projectsGrid.innerHTML = projectsToRender
+    .map((project) => {
+      // pin the first 3 entries in window.projects (by original index)
+      const originalIndex = projectsData.indexOf(project);
+      const isPinned = originalIndex >= 0 && originalIndex < 3;
+
+      return `
       <div
         class="project-card glass-card animate-on-scroll zoom-in"
         data-project-id="${project.id}"
@@ -463,19 +467,18 @@ function renderProjects() {
         tabindex="0"
         aria-label="View project: ${project.title}"
       >
+        ${isPinned ? `<div class="pinned-badge"><i class="fas fa-thumbtack"></i> PINNED</div>` : ""}
         <img
-          src="${project.image}"
+          src="${resolveImagePath(project.image)}"
           alt="Screenshot of the ${project.title} project"
           class="project-image"
+          loading="lazy"
         />
         <div class="project-content">
           ${project.type
             .map(
               (t) =>
-                `<span class="project-type-tag ${getProjectTypeClass(t)}">${t.replace(
-                  /-/g,
-                  " ",
-                )}</span>`,
+                `<span class="project-type-tag ${window.getProjectTypeClass(t)}">${t.replace(/-/g, " ")}</span>`,
             )
             .join("")}
           <h3 class="project-title">${project.title}</h3>
@@ -486,8 +489,8 @@ function renderProjects() {
               .join("")}
           </div>
         </div>
-      </div>`,
-    )
+      </div>`;
+    })
     .join("");
 
   document.querySelectorAll(".project-card").forEach((card) => {
@@ -501,20 +504,24 @@ function renderProjects() {
     });
   });
 }
-
 // =========================================================
-// PROJECT MODAL
+//                      PROJECT MODAL
 // =========================================================
 function openProjectModal(projectId) {
-  const project = projects.find((p) => p.id === projectId);
+  const projectsData = window.projects || [];
+  const project = projectsData.find((p) => p.id === projectId);
   if (!project) return;
 
   const modal = document.getElementById("projectModal");
   const modalContent = document.getElementById("projectModalContent");
+  if (!modal || !modalContent) return;
+
+  const isSubPage = window.location.pathname.includes("/pages/");
+  const resolveImagePath = (path) => (isSubPage ? `../${path}` : path);
 
   modalContent.innerHTML = `
     <img
-      src="${project.image}"
+      src="${resolveImagePath(project.image)}"
       alt="Full view of the ${project.title} project"
       class="modal-project-image"
     />
@@ -523,10 +530,7 @@ function openProjectModal(projectId) {
       ${project.type
         .map(
           (t) =>
-            `<span class="project-type-tag ${getProjectTypeClass(t)}">${t.replace(
-              /-/g,
-              " ",
-            )}</span>`,
+            `<span class="project-type-tag ${window.getProjectTypeClass(t)}">${t.replace(/-/g, " ")}</span>`,
         )
         .join("")}
     </div>
@@ -535,67 +539,74 @@ function openProjectModal(projectId) {
     </div>
     <p class="modal-project-details">${project.details}</p>
     <div class="modal-project-links">
-      <a
-        href="${project.demo}"
-        class="modal-link glow-hover"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Live Demo of ${project.title}"
-      >
-        <i class="fas fa-external-link-alt"></i> Live Demo
+      <a href="${project.demo}" class="modal-link glow-hover"
+         target="_blank" rel="noopener noreferrer">
+        Live Demo
       </a>
-      <a
-        href="${project.github}"
-        class="modal-link glow-hover"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub code for ${project.title}"
-      >
-        <i class="fab fa-github"></i> View Code
+      <a href="${project.github}" class="modal-link glow-hover"
+         target="_blank" rel="noopener noreferrer">
+        View Code
       </a>
-    </div>`;
+    </div>
+  `;
 
   setTimeout(() => {
     modal.classList.add("active");
     document.body.classList.add("modal-open");
   }, 10);
 }
-
 function closeProjectModal() {
   const modal = document.getElementById("projectModal");
+  if (!modal) return;
   modal.classList.remove("active");
   setTimeout(() => document.body.classList.remove("modal-open"), 500);
 }
 
 // =========================================================
-// RENDER CLIENTS (from Project 3) — infinite carousel
+//        RENDER CLIENTS - infinite carousel
+// Each logo is now a clickable link. The carousel animation
+// pauses when the user hovers over the container.
 // =========================================================
 function renderClients() {
   const clientsTrack = document.getElementById("clientsTrack");
   if (!clientsTrack) return;
 
-  // Duplicate for seamless loop
-  const clientsForLoop = [...clients, ...clients];
+  const clientsCarousel = document.querySelector(".clients-carousel");
 
+  // Duplicate the array so the seamless loop works
+  const clientsForLoop = [...clients, ...clients];
   clientsTrack.innerHTML = clientsForLoop
     .map(
       (client) => `
-      <div
+      <a
+        href="${client.url}"
+        target="_blank"
+        rel="noopener noreferrer"
         class="client-logo"
-        role="img"
-        aria-label="Logo for client ${client.name}"
+        aria-label="Visit ${client.name}"
       >
         <img src="${client.logo}" alt="${client.name} logo" />
-      </div>`,
+      </a>`,
     )
     .join("");
+
+  // Pause animation on hover so users can click logos
+  if (clientsCarousel) {
+    clientsCarousel.addEventListener("mouseenter", () => {
+      clientsTrack.style.animationPlayState = "paused";
+    });
+    clientsCarousel.addEventListener("mouseleave", () => {
+      clientsTrack.style.animationPlayState = "running";
+    });
+  }
 }
 
 // =========================================================
-// RENDER TESTIMONIALS
+//                    RENDER TESTIMONIALS
 // =========================================================
 function renderTestimonials() {
   const testimonialsGrid = document.getElementById("testimonialsGrid");
+  if (!testimonialsGrid) return;
 
   testimonialsGrid.innerHTML = testimonials
     .map(
@@ -608,11 +619,7 @@ function renderTestimonials() {
         aria-label="Read full testimonial from ${testimonial.name}"
       >
         <div class="testimonial-header">
-          <img
-            src="${testimonial.avatar}"
-            alt="Avatar of ${testimonial.name}"
-            class="testimonial-avatar"
-          />
+          <img src="${testimonial.avatar}" alt="Avatar of ${testimonial.name}" class="testimonial-avatar" />
           <div class="testimonial-info">
             <h4>${testimonial.name}</h4>
             <p>${testimonial.role}</p>
@@ -640,7 +647,7 @@ function renderTestimonials() {
 }
 
 // =========================================================
-// TESTIMONIAL MODAL
+//                    TESTIMONIAL MODAL
 // =========================================================
 function openTestimonialModal(index) {
   const testimonial = testimonials[index];
@@ -648,14 +655,11 @@ function openTestimonialModal(index) {
 
   const modal = document.getElementById("testimonialModal");
   const modalContent = document.getElementById("testimonialModalContent");
+  if (!modal || !modalContent) return;
 
   modalContent.innerHTML = `
     <div class="testimonial-header">
-      <img
-        src="${testimonial.avatar}"
-        alt="Avatar of ${testimonial.name}"
-        class="testimonial-avatar"
-      />
+      <img src="${testimonial.avatar}" alt="Avatar of ${testimonial.name}" class="testimonial-avatar" />
       <div class="testimonial-info">
         <h4>${testimonial.name}</h4>
         <p>${testimonial.role}</p>
@@ -674,48 +678,18 @@ function openTestimonialModal(index) {
 
 function closeTestimonialModal() {
   const modal = document.getElementById("testimonialModal");
+  if (!modal) return;
   modal.classList.remove("active");
   setTimeout(() => document.body.classList.remove("modal-open"), 500);
 }
 
 // =========================================================
-// SCROLL ANIMATIONS
-// =========================================================
-function initScrollAnimations(elements = null) {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  };
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("scrolled-in");
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0) scale(1)";
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  const els = elements || document.querySelectorAll(".animate-on-scroll");
-
-  els.forEach((el) => {
-    if (!el.classList.contains("scrolled-in")) {
-      el.style.opacity = "0";
-      if (el.classList.contains("slide-up"))
-        el.style.transform = "translateY(30px)";
-      else if (el.classList.contains("zoom-in"))
-        el.style.transform = "scale(0.9)";
-      observer.observe(el);
-    }
-  });
-}
-
-// =========================================================
-// COUNTERS
+//                            COUNTERS
 // =========================================================
 function initCounters() {
+  const statsBar = document.querySelector(".stats-bar");
+  if (!statsBar) return;
+
   const experienceCountEl = document.getElementById("experienceCount");
   const projectsCountEl = document.getElementById("projectsCount");
   const clientsCountEl = document.getElementById("clientsCount");
@@ -738,87 +712,118 @@ function initCounters() {
     { threshold: 0.5 },
   );
 
-  const statsBar = document.querySelector(".stats-bar");
-  if (statsBar) counterObserver.observe(statsBar);
+  counterObserver.observe(statsBar);
 }
 
 // =========================================================
-// PAGE LOADER
+//                        PAGE LOADER
 // =========================================================
 function hideLoader() {
   const loader = document.getElementById("page-loader");
-  if (loader) {
-    loader.classList.add("hidden");
-    setTimeout(() => loader.remove(), 500);
-  }
+  if (!loader) return;
+  loader.classList.add("hidden");
+  // Remove from DOM after the CSS transition completes (0.5s)
+  setTimeout(() => {
+    if (loader.parentNode) loader.parentNode.removeChild(loader);
+  }, 600);
 }
 
 // =========================================================
-// INIT
+//                            INIT
 // =========================================================
 document.addEventListener("DOMContentLoaded", () => {
-  // Render dynamic sections
-  renderSkills();
-  renderExperience();
-  renderProjects();
-  renderClients();
-  renderTestimonials();
+  try {
+    // --- Render all dynamic sections ---
+    // Each function guards itself with an early return if its
+    // target element doesn't exist, so pages that only have a
+    // subset of sections (e.g. projects.html) won't throw.
+    renderSkills();
+    renderExperience();
+    renderProjects();
+    renderClients();
+    renderTestimonials();
 
-  // Mobile menu
-  initMobileMenu();
+    // --- Mobile menu ---
+    initMobileMenu();
 
-  // Load More Experience
-  document
-    .getElementById("loadMoreExperience")
-    .addEventListener("click", loadMoreExperience);
-
-  // Modal close buttons
-  document
-    .getElementById("closeProjectModal")
-    .addEventListener("click", closeProjectModal);
-  document
-    .getElementById("closeTestimonialModal")
-    .addEventListener("click", closeTestimonialModal);
-
-  // Close modals on backdrop click
-  document.getElementById("projectModal").addEventListener("click", (e) => {
-    if (e.target.id === "projectModal") closeProjectModal();
-  });
-  document.getElementById("testimonialModal").addEventListener("click", (e) => {
-    if (e.target.id === "testimonialModal") closeTestimonialModal();
-  });
-
-  // ESC key closes modals
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeProjectModal();
-      closeTestimonialModal();
+    // --- Load More / Show Less Experience ---
+    const loadMoreBtn = document.getElementById("loadMoreExperience");
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener("click", loadMoreExperience);
     }
-  });
+    const showLessBtn = document.getElementById("showLessExperience");
+    if (showLessBtn) {
+      showLessBtn.addEventListener("click", showLessExperience);
+    }
 
-  // Smooth scroll — offset for floating header
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        const headerHeight =
-          document.querySelector(".glass-header").offsetHeight;
-        const offset = 16;
-        const offsetPosition =
-          target.getBoundingClientRect().top +
-          window.pageYOffset -
-          (headerHeight + offset);
+    // --- Modal close buttons ---
+    const closeProjectBtn = document.getElementById("closeProjectModal");
+    if (closeProjectBtn) {
+      closeProjectBtn.addEventListener("click", closeProjectModal);
+    }
 
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    const closeTestimonialBtn = document.getElementById(
+      "closeTestimonialModal",
+    );
+    if (closeTestimonialBtn) {
+      closeTestimonialBtn.addEventListener("click", closeTestimonialModal);
+    }
+
+    // --- Close modals on backdrop click ---
+    const projectModal = document.getElementById("projectModal");
+    if (projectModal) {
+      projectModal.addEventListener("click", (e) => {
+        if (e.target.id === "projectModal") closeProjectModal();
+      });
+    }
+
+    const testimonialModal = document.getElementById("testimonialModal");
+    if (testimonialModal) {
+      testimonialModal.addEventListener("click", (e) => {
+        if (e.target.id === "testimonialModal") closeTestimonialModal();
+      });
+    }
+
+    // --- ESC key closes any open modal ---
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeProjectModal();
+        closeTestimonialModal();
       }
     });
-  });
 
-  // Kick off animations & loader hide
-  setTimeout(() => {
-    initScrollAnimations();
-    initCounters();
-    hideLoader();
-  }, 300);
+    // --- Smooth scroll with floating-header offset ---
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (!href || href === "#") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const header = document.querySelector(".glass-header");
+          const headerHeight = header ? header.offsetHeight : 0;
+          const offsetPosition =
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            (headerHeight + 16);
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+      });
+    });
+
+    // --- Kick off animations & counters after a short paint delay ---
+    // The 300ms delay ensures rendered HTML is in the DOM before
+    // the observer starts measuring element positions.
+    setTimeout(() => {
+      initScrollAnimations();
+      initCounters();
+    }, 300);
+  } catch (err) {
+    console.error("Portfolio init error:", err);
+  } finally {
+    // --- Guaranteed loader hide ---
+    // The finally block runs even if a render step above throws,
+    // so the page is never stuck on the loader screen.
+    setTimeout(hideLoader, 400);
+  }
 });

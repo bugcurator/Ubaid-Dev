@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>All Projects - Ubaid Ahmad</title>
+    <meta
+      name="title"
+      content="All Projects | Ubaid Ahmad - Full-Stack MERN Developer & UI/UX Designer"
+    />
+    <meta
+      name="description"
+      content="Browse all projects by Ubaid Ahmad - Full-Stack MERN Developer & UI/UX Designer. Client work, personal builds, and agentic AI experiments."
+    />
+    <meta name="author" content="Ubaid Ahmad" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f0f1a" />
+    <link rel="canonical" href="https://bugcurator.github.io/projects.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/webpage-icon.png" />
+    <link rel="apple-touch-icon" href="./assets/webpage-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://bugcurator.github.io/projects.html"
+    />
+    <meta property="og:title" content="All Projects | Ubaid Ahmad" />
+    <meta
+      property="og:description"
+      content="Browse all projects by Ubaid Ahmad — Full-Stack MERN Developer & UI/UX Designer."
+    />
+    <meta property="og:image" content="./assets/ubaidahmad-img.jpg" />
+    <meta property="og:site_name" content="Ubaid Ahmad Portfolio" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <!-- Page Loader -->
+    <div id="page-loader">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading...</div>
+    </div>
+
+    <!-- Liquid Background -->
+    <div class="liquid-bg"></div>
+
+    <!-- Floating Header -->
+    <header class="glass-header">
+      <div class="container-custom">
+        <div class="header-content">
+          <a href="../index.html" class="logo" style="text-decoration: none"
+            >Ubaid Ahmad</a
+          >
+          <nav class="desktop-nav" aria-label="Main Navigation">
+            <a href="../index.html#hero">Home</a>
+            <a href="../index.html#skills">Skills</a>
+            <a href="../index.html#experience">Experience</a>
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#testimonials">Testimonials</a>
+            <a href="../index.html#connect">Connect</a>
+          </nav>
+          <div class="header-actions">
+            <button
+              id="mobileMenuBtn"
+              class="mobile-menu-btn"
+              aria-label="Open mobile menu"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+      <div class="mobile-menu-content glass-card">
+        <button
+          id="closeMobileMenu"
+          class="close-menu-btn"
+          aria-label="Close mobile menu"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
+          <a href="../index.html#hero" class="mobile-nav-link">Home</a>
+          <a href="../index.html#skills" class="mobile-nav-link">Skills</a>
+          <a href="../index.html#experience" class="mobile-nav-link"
+            >Experience</a
+          >
+          <a href="../index.html#projects" class="mobile-nav-link">Projects</a>
+          <a href="../index.html#testimonials" class="mobile-nav-link"
+            >Testimonials</a
+          >
+          <a href="../index.html#connect" class="mobile-nav-link">Connect</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- All Projects Section -->
+    <section
+      id="all-projects"
+      class="section all-projects-section"
+      aria-labelledby="all-projects-title"
+    >
+      <div class="container-custom">
+        <div class="section-wrapper">
+          <h2 id="all-projects-title" class="section-title">All Projects</h2>
+          <p
+            class="connect-description animate-on-scroll fade-in"
+            style="margin-bottom: 2.5rem"
+          >
+            A complete look at everything I've built - client work, personal
+            experiments, and everything in between.
+          </p>
+
+          <div id="projectsGrid" class="projects-grid"></div>
+
+          <div class="back-to-home-wrap animate-on-scroll fade-in">
+            <a
+              href="../index.html#hero"
+              class="cta-button glow-hover"
+              aria-label="Back to home page"
+            >
+              <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div
+      id="projectModal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Project Details"
+    >
+      <div class="modal-content glass-card">
+        <button
+          class="modal-close"
+          id="closeProjectModal"
+          aria-label="Close project modal"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="projectModalContent"></div>
+      </div>
+    </div>
+
+    <footer class="glass-footer">
+      <div class="container-custom">
+        <div class="footer-content">
+          <p class="footer-text">
+            <i class="fa-regular fa-copyright"></i> 2026 Ubaid Ahmad. All Rights
+            Reserved.
+          </p>
+          <nav class="footer-nav" aria-label="Footer Navigation">
+            <a href="../index.html#hero">Home</a>
+            <a href="../index.html#skills">Skills</a>
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#connect">Connect</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../scripts/projects-data.js"></script>
+    <script src="../scripts/script.js"></script>
+  </body>
+</html>

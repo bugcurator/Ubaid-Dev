@@ -1,5 +1,5 @@
 /* =========================================================
-   ROOT VARIABLES — Gold / Dark Theme (Preserved)
+         ROOT VARIABLES — Gold / Dark Theme (Preserved)
    ========================================================= */
 :root {
   --bg-dark: #1a1a1a;
@@ -12,7 +12,7 @@
 }
 
 /* =========================================================
-   RESET & BASE
+                           RESET & BASE
    ========================================================= */
 * {
   margin: 0;
@@ -45,7 +45,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   PAGE LOADER
+                          PAGE LOADER
    ========================================================= */
 #page-loader {
   position: fixed;
@@ -95,7 +95,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   LIQUID GLASS BACKGROUND
+                    LIQUID GLASS BACKGROUND
    ========================================================= */
 .liquid-bg {
   position: fixed;
@@ -150,7 +150,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   iOS GLASSMORPHISM — .glass-card
+                iOS GLASSMORPHISM - .glass-card
    ========================================================= */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
@@ -163,7 +163,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   CONTAINER
+                            CONTAINER
    ========================================================= */
 .container-custom {
   max-width: 1440px;
@@ -172,7 +172,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   SECTION WRAPPER
+                          SECTION WRAPPER
    ========================================================= */
 .section-wrapper {
   display: flex;
@@ -183,7 +183,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   FLOATING HEADER
+                          FLOATING HEADER
    ========================================================= */
 .glass-header {
   position: fixed;
@@ -267,7 +267,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   MOBILE MENU
+                            MOBILE MENU
    ========================================================= */
 .mobile-menu {
   position: fixed;
@@ -350,7 +350,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   HERO SECTION
+                            HERO SECTION
    ========================================================= */
 .hero-section {
   min-height: 100vh;
@@ -374,21 +374,191 @@ body.modal-open {
   width: 100%;
 }
 
-.profile-image {
-  width: 180px;
-  height: 180px;
+/* =========================================================
+                  PREMIUM 3D PROFILE COIN-TOSS
+   ---------------------------------------------------------
+   Hierarchy
+     .profile-coin-container   perspective wrapper + glow ring
+       |- .coin-inner           the element that actually rotates
+            |- .coin-front      profile photo face
+            |- .coin-back       "Trusted Expert" verification face
+   ========================================================= */
+
+/* --- Outer wrapper: perspective + glowing ring --- */
+.profile-coin-container {
+  --coin-size: 180px;
+  --coin-border: 4px;
+
+  width: var(--coin-size);
+  height: var(--coin-size);
   margin: 0 auto 2rem;
   border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid var(--accent-dark);
-  box-shadow: 0 0 40px var(--shadow-color);
-  animation: profileGlow 3s ease-in-out infinite;
+  perspective: 1500px; /* deep perspective for natural depth */
+  cursor: pointer;
+
+  /* Layered glow: sharp gold ring + soft ambient halo */
+  box-shadow:
+    0 0 0 var(--coin-border) var(--accent-dark),
+    0 0 30px 4px rgba(212, 175, 55, 0.55),
+    0 0 70px 8px rgba(212, 175, 55, 0.2);
+  animation: coinGlow 3s ease-in-out infinite;
 }
 
-.profile-image img {
+@keyframes coinGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 var(--coin-border) var(--accent-dark),
+      0 0 30px 4px rgba(212, 175, 55, 0.55),
+      0 0 70px 8px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 0 var(--coin-border) #f0d896,
+      0 0 45px 8px rgba(212, 175, 55, 0.75),
+      0 0 90px 16px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* --- Rotating inner: the coin itself --- */
+.coin-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transition: transform 3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-transition: transform 3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -moz-transition: transform 3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -ms-transition: transform 3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -o-transition: transform 3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Trigger: two full Y-axis turns on hover */
+.profile-coin-container:hover .coin-inner {
+  transform: rotateY(720deg);
+}
+
+/* --- Shared face rules --- */
+.coin-front,
+.coin-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* --- FRONT: profile photo --- */
+.coin-front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 50%;
+  /* Subtle inner shadow so the image feels "inset" on the coin */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+/* --- BACK: Trusted Expert verification panel --- */
+.coin-back {
+  /* Starts face-down; only visible during the back half of the spin */
+  transform: rotateY(180deg);
+
+  /* Deep dark gradient matching the site's dark theme */
+  background:
+    radial-gradient(
+      circle at 40% 35%,
+      rgba(212, 175, 55, 0.18) 0%,
+      transparent 65%
+    ),
+    linear-gradient(160deg, #1f1c12 0%, #1a1a1a 45%, #0d0d0d 100%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+
+  /* Matching inner shadow for depth consistency */
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Stacked icon: certificate shell + check overlaid --- */
+.coin-back-icon-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.55rem;
+}
+
+/* The outer certificate/badge shape */
+.coin-icon-cert {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.2rem;
+  /*
+   - Vibrant gold gradient on the shell so it reads instantly
+   - as a premium verification mark.
+   */
+  background: linear-gradient(
+    145deg,
+    #f0d896 0%,
+    var(--accent-dark) 45%,
+    #9a7820 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.6));
+}
+
+/* The check mark punched over the centre of the certificate */
+.coin-icon-check {
+  position: relative;
+  z-index: 1;
+  font-size: 1.55rem;
+  color: #1a1a1a; /* dark so it reads on the gold shell */
+  font-weight: 900;
+  /* Micro text-shadow to prevent the check blending into bg */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Text labels --- */
+.coin-back-title {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #f0d896, var(--accent-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.coin-back-sub {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(240, 216, 150, 0.55);
+  line-height: 1.2;
+}
+
+/* --- Keep "profile-image" as a no-op alias so no other code breaks --- */
+.profile-image {
+  display: contents;
 }
 
 @keyframes profileGlow {
@@ -451,7 +621,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   SECTIONS
+                            SECTIONS
    ========================================================= */
 .section {
   padding: 5rem 0;
@@ -471,7 +641,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   STATS BAR
+                            STATS BAR
    ========================================================= */
 .stats-bar {
   display: flex;
@@ -501,7 +671,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   SKILLS — Tabbed Category Bar (from Project 2)
+                 SKILLS — Tabbed Category Bar
    ========================================================= */
 .skills-category-bar {
   display: flex;
@@ -550,7 +720,7 @@ body.modal-open {
   /* min-height: 250px; */
 }
 
-/* Skill card — Project 1 visual style on Project 2 layout */
+/* Skill card */
 .skill-card {
   min-height: 80px;
   width: 100%;
@@ -580,7 +750,7 @@ body.modal-open {
   border-color: rgba(212, 175, 55, 0.4);
 }
 
-/* Skill pop-in animation (from Project 2) */
+/* Skill pop-in animation */
 .skill-card-anim {
   animation: skillPop 0.45s var(--spring) forwards;
   opacity: 0;
@@ -595,7 +765,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   EXPERIENCE TIMELINE
+                        EXPERIENCE TIMELINE
    ========================================================= */
 .experience-timeline {
   position: relative;
@@ -687,10 +857,12 @@ body.modal-open {
   font-size: 0.95rem;
 }
 
-/* Load More Button */
+/* Load More / Show Less Buttons */
 .load-more-btn {
-  display: block;
-  margin: 2rem auto 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
   padding: 0.875rem 2.5rem;
   font-size: 1rem;
   font-weight: 600;
@@ -710,7 +882,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   PROJECTS GRID
+                        PROJECTS GRID
    ========================================================= */
 .projects-grid {
   display: grid;
@@ -724,6 +896,7 @@ body.modal-open {
   overflow: hidden;
   cursor: pointer;
   transition: all 0.5s var(--spring);
+  position: relative;
 }
 
 .project-card:hover {
@@ -843,6 +1016,37 @@ body.modal-open {
   color: #00ced1;
 }
 
+/* =========================================================
+                          PINNED BADGE 
+   ========================================================= */
+.pinned-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.9rem 0.35rem 0.75rem;
+  background: linear-gradient(135deg, var(--accent-dark), #c49a1a);
+  color: #1a1a1a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 0 20px 0 14px; /* top-right follows card curve, bottom-left soft */
+  z-index: 3;
+  box-shadow:
+    0 2px 8px rgba(212, 175, 55, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  user-select: none;
+}
+
+.pinned-badge i {
+  font-size: 0.7rem;
+  transform: rotate(45deg); /* point the thumbtack into the corner */
+}
+
 .project-summary {
   font-size: 0.95rem;
   line-height: 1.65;
@@ -868,7 +1072,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   MODALS
+                              MODALS
    ========================================================= */
 .modal {
   display: flex;
@@ -984,7 +1188,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   CLIENTS CAROUSEL (from Project 3)
+                        CLIENTS CAROUSEL
    ========================================================= */
 .clients-carousel {
   overflow: hidden;
@@ -1003,7 +1207,7 @@ body.modal-open {
 .client-logo {
   min-width: 200px;
   height: 120px;
-  padding: 1.5rem;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1012,6 +1216,7 @@ body.modal-open {
   background: var(--glass-dark);
   transition: all 0.5s var(--spring);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .client-logo:hover {
@@ -1020,11 +1225,14 @@ body.modal-open {
 }
 
 .client-logo img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   filter: grayscale(100%);
   opacity: 0.6;
   transition: all 0.5s ease;
+  display: block;
 }
 
 .client-logo:hover img {
@@ -1042,7 +1250,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   COLLABORATION SECTION (from Project 3)
+                    COLLABORATION SECTION
    ========================================================= */
 .collab-cards {
   display: grid;
@@ -1103,7 +1311,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   TESTIMONIALS
+                          TESTIMONIALS
    ========================================================= */
 .testimonials-grid {
   display: grid;
@@ -1180,7 +1388,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   CONNECT SECTION
+                        CONNECT SECTION
    ========================================================= */
 .connect-description {
   text-align: center;
@@ -1224,7 +1432,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   SOCIAL ICONS
+                          SOCIAL ICONS
    ========================================================= */
 .social-icons {
   display: flex;
@@ -1278,7 +1486,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   FOOTER
+                            FOOTER
    ========================================================= */
 .glass-footer {
   padding: 2rem 0;
@@ -1325,7 +1533,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   GLOW HOVER EFFECT (ripple)
+                  GLOW HOVER EFFECT (ripple)
    ========================================================= */
 .glow-hover {
   position: relative;
@@ -1354,29 +1562,143 @@ body.modal-open {
 }
 
 /* =========================================================
-   SCROLL ANIMATIONS
+   SCROLL ANIMATIONS — Bi-directional system
+   Elements animate IN from the direction the user is scrolling:
+     Scrolling DOWN → element slides up from below (from-below)
+     Scrolling UP   → element slides down from above (from-above)
+   Direction classes are applied by the IntersectionObserver in
+   script.js and cleared on exit so every pass re-animates.
    ========================================================= */
+
+/* --- Base hidden / exit state --- */
 .animate-on-scroll {
   opacity: 0;
   transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
+    opacity 0.65s ease-out,
+    transform 0.65s ease-out;
 }
 
-.slide-up {
-  transform: translateY(30px);
+/* --- slide-up: directional offsets --- */
+.animate-on-scroll.slide-up.from-below {
+  transform: translateY(40px);
+}
+.animate-on-scroll.slide-up.from-above {
+  transform: translateY(-40px);
 }
 
-.zoom-in {
-  transform: scale(0.9);
+/* --- zoom-in: scale from small regardless of direction --- */
+.animate-on-scroll.zoom-in {
+  transform: scale(0.88);
 }
 
-.fade-in {
-  /* starts at opacity:0 only */
+/* --- fade-in: subtle directional lift --- */
+.animate-on-scroll.fade-in.from-below {
+  transform: translateY(12px);
+}
+.animate-on-scroll.fade-in.from-above {
+  transform: translateY(-12px);
+}
+
+/* --- Visible / enter state (toggled by IntersectionObserver) --- */
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* =========================================================
-   CUSTOM SCROLLBAR
+   UNIVERSAL SHIMMER-GRADIENT HOVER
+   A diagonal gold shimmer sweeps across any element that
+   carries a hover effect. Applied via ::after pseudo-element
+   so it doesn't conflict with the ::before glow ripple on
+   .glow-hover elements.
+
+   IMPORTANT: .modal-content is excluded from overflow:hidden
+   so its overflow-y:auto scroll is preserved for long project
+   and testimonial details.
+   ========================================================= */
+.glass-card:not(.modal-content),
+.cta-button,
+.load-more-btn,
+.connect-btn,
+.modal-link,
+.category-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* .modal-content only needs position:relative (already inherits
+   it via .glass-card above, but we re-declare to be explicit) */
+.modal-content {
+  position: relative;
+}
+
+.glass-card:not(.modal-content)::after,
+.cta-button::after,
+.load-more-btn::after,
+.connect-btn::after,
+.modal-link::after,
+.category-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -110%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.18) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glass-card:not(.modal-content):hover::after,
+.cta-button:hover::after,
+.load-more-btn:hover::after,
+.connect-btn:hover::after,
+.modal-link:hover::after,
+.category-btn:hover::after {
+  left: 160%;
+}
+
+/* =========================================================
+                  EXPERIENCE BUTTON GROUP
+   ========================================================= */
+.experience-btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* "Show Less" gets a faint red-tinted accent to differentiate */
+.load-less-btn {
+  border-color: rgba(212, 100, 55, 0.35);
+}
+
+.load-less-btn:hover {
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(212, 100, 55, 0.2);
+}
+
+/* =========================================================
+                        CLIENTS CAROUSEL
+   ========================================================= */
+a.client-logo {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* =========================================================
+                       CUSTOM SCROLLBAR
    ========================================================= */
 ::-webkit-scrollbar {
   width: 10px;
@@ -1393,7 +1715,7 @@ body.modal-open {
 }
 
 /* =========================================================
-   RESPONSIVE — 768px
+                        RESPONSIVE — 768px
    ========================================================= */
 @media (max-width: 768px) {
   .desktop-nav {
@@ -1525,16 +1847,15 @@ body.modal-open {
 }
 
 /* =========================================================
-   RESPONSIVE — 480px
+                      RESPONSIVE — 480px
    ========================================================= */
 @media (max-width: 480px) {
   .hero-glass-container {
     padding: 2rem 1.25rem;
   }
 
-  .profile-image {
-    width: 140px;
-    height: 140px;
+  .profile-coin-container {
+    --coin-size: 140px;
   }
 
   .social-icons {
@@ -1545,5 +1866,61 @@ body.modal-open {
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
+  }
+}
+
+/* =========================================================
+          VIEW ALL PROJECTS BUTTON WRAP (index.html)
+   ========================================================= */
+.view-all-projects-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.view-all-projects-wrap .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* =========================================================
+              ALL PROJECTS PAGE (projects.html)
+   ========================================================= */
+.all-projects-section {
+  padding-top: calc(44px + 1rem + 2rem);
+  min-height: 100vh;
+}
+
+.all-projects-section .section-wrapper {
+  padding-bottom: 4rem;
+}
+
+.back-to-home-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.back-to-home-wrap .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ensure projects-grid stays responsive on all-projects page */
+.all-projects-section .projects-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .all-projects-section .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .all-projects-section .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
