@@ -5044,6 +5044,11 @@ a.client-logo {
 :root[data-theme="light"] .mobile-menu-content {
   background: rgba(245, 245, 240, 0.97) !important;
 }
+:root[data-theme="light"] .modal-content {
+  background: #ffffff !important;
+  border-color: rgba(var(--accent-rgb), 0.2) !important;
+  color: #1a1a1a !important;
+}
 :root[data-theme="light"] .loader-text {
   color: #1a1a1a;
 }
