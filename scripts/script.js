@@ -34,14 +34,13 @@ const skillCategories = [
     ],
   },
   {
-    category: "AI & Logic",
+    category: "Logic & CS",
     skills: [
-      { name: "Agentic AI" },
-      { name: "Agentic Workflows" },
-      { name: "Prompt Engineering" },
       { name: "Problem Solving" },
       { name: "Python" },
       { name: "C++" },
+      { name: "Data Structures" },
+      { name: "Algorithms" },
     ],
   },
   {
@@ -72,44 +71,54 @@ const experience = [
     company: "Freelance / Personal Projects",
     period: "Sep 2024 - Present",
     description:
-      "Delivering end-to-end digital solutions: from human-centered UI/UX design in Figma to full-stack MERN applications with RESTful APIs. Specializing in Agentic AI workflows, responsive interfaces, and scalable architectures that turn complex startup needs into seamless digital experiences.",
+      "Delivering end-to-end digital solutions: from human-centered UI/UX design in Figma to full-stack MERN applications with RESTful APIs. Specializing in responsive interfaces, scalable architectures, and clean code that turns complex client needs into seamless digital products.",
     isInitiallyVisible: true,
   },
 ];
 
 // =========================================================
-//               CLIENTS - infinite carousel
+//               CLIENTS - Carousel data
+// ─────────────────────────────────────────────────────────
+// HOW TO ADD A REAL ENTRY:
+//   {
+//     name:     "Company Name",
+//     logo:     "./assets/company-logo.png",  // optional — remove key if no logo yet
+//     link:     "https://company.com",        // website > facebook > instagram
+//     linkType: "website",                    // "website" | "facebook" | "instagram"
+//   }
+// If logo is omitted the card auto-renders an initial-based placeholder.
 // =========================================================
 const clients = [
+  // -- Placeholder entries — replace with real companies as you land them --
   {
-    name: "TechCorp",
-    logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=TechCorp",
-    url: "https://techcorp.com",
+    name: "Your First SW House",
+    // logo: "./assets/logo-swhouse.png",   // uncomment when I have the asset
+    link: "https://facebook.com",
+    linkType: "facebook",
   },
   {
-    name: "DesignHub",
-    logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=DesignHub",
-    url: "https://designhub.io",
+    name: "Tech Company",
+    // logo: "./assets/logo-tech.png",
+    link: "https://instagram.com",
+    linkType: "instagram",
   },
   {
-    name: "StartupLab",
-    logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=StartupLab",
-    url: "https://startuplab.co",
+    name: "Digital Agency",
+    // logo: "./assets/logo-agency.png",
+    link: "https://yoursite.com",
+    linkType: "website",
   },
   {
-    name: "CreativeStudio",
-    logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=CreativeStudio",
-    url: "https://creativestudio.design",
+    name: "Startup Studio",
+    // logo: "./assets/logo-startup.png",
+    link: "https://facebook.com",
+    linkType: "facebook",
   },
   {
-    name: "DevAgency",
-    logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=DevAgency",
-    url: "https://devagency.dev",
-  },
-  {
-    name: "NovaTech",
-    logo: "https://via.placeholder.com/200x80/d4af37/1a1a1a?text=NovaTech",
-    url: "https://novatech.io",
+    name: "Dev Firm",
+    // logo: "./assets/logo-devfirm.png",
+    link: "https://yoursite.com",
+    linkType: "website",
   },
 ];
 
@@ -266,10 +275,10 @@ function initMobileMenu() {
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   const closeMobileMenu = document.getElementById("closeMobileMenu");
-  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
   if (!mobileMenuBtn || !mobileMenu || !closeMobileMenu) return;
 
+  // ── Open / close overlay ──
   mobileMenuBtn.addEventListener("click", () =>
     mobileMenu.classList.add("active"),
   );
@@ -279,9 +288,39 @@ function initMobileMenu() {
   mobileMenu.addEventListener("click", (e) => {
     if (e.target === mobileMenu) mobileMenu.classList.remove("active");
   });
-  mobileNavLinks.forEach((link) => {
-    link.addEventListener("click", () => mobileMenu.classList.remove("active"));
+
+  // ── Sub-nav accordion: tap parent link to expand/collapse ──
+  const navGroups = mobileMenu.querySelectorAll(".mobile-nav-group");
+  navGroups.forEach((group) => {
+    const parentLink = group.querySelector(":scope > .mobile-nav-link");
+    if (!parentLink) return;
+
+    parentLink.addEventListener("click", (e) => {
+      // Only intercept if there IS a subnav — otherwise navigate normally
+      const subnav = group.querySelector(".mobile-subnav");
+      if (!subnav) return;
+
+      const isActive = group.classList.contains("is-active");
+
+      // Collapse all groups first
+      navGroups.forEach((g) => g.classList.remove("is-active"));
+
+      // Re-open this one if it was closed
+      if (!isActive) {
+        group.classList.add("is-active");
+        e.preventDefault(); // stay on page while expanding
+      }
+    });
   });
+
+  // ── Close overlay when a sub-link (non-group) link is tapped ──
+  mobileMenu
+    .querySelectorAll(".mobile-subnav a, .mobile-nav > .mobile-nav-link")
+    .forEach((link) => {
+      link.addEventListener("click", () =>
+        mobileMenu.classList.remove("active"),
+      );
+    });
 }
 
 // =========================================================
@@ -459,6 +498,29 @@ function renderProjects() {
       const originalIndex = projectsData.indexOf(project);
       const isPinned = originalIndex >= 0 && originalIndex < 3;
 
+      // FA icon map for outcome tags
+      const faIconMap = {
+        "check-circle": "fas fa-check-circle",
+        zap: "fas fa-bolt",
+        star: "fas fa-star",
+      };
+
+      // Outcome tags — Font Awesome icons only
+      const outcomesHTML =
+        project.outcomes && project.outcomes.length
+          ? `<div class="outcome-tags">
+              ${project.outcomes
+                .map(
+                  (o) =>
+                    `<span class="outcome-tag">
+                      <i class="${faIconMap[o.icon] || "fas fa-check-circle"}"></i>
+                      ${o.label}
+                    </span>`,
+                )
+                .join("")}
+             </div>`
+          : "";
+
       return `
       <div
         class="project-card glass-card animate-on-scroll zoom-in"
@@ -475,12 +537,14 @@ function renderProjects() {
           loading="lazy"
         />
         <div class="project-content">
-          ${project.type
-            .map(
-              (t) =>
-                `<span class="project-type-tag ${window.getProjectTypeClass(t)}">${t.replace(/-/g, " ")}</span>`,
-            )
-            .join("")}
+          <div class="project-type-tags">
+            ${project.type
+              .map(
+                (t) =>
+                  `<span class="project-type-tag ${window.getProjectTypeClass(t)}">${t.replace(/-/g, " ")}</span>`,
+              )
+              .join("")}
+          </div>
           <h3 class="project-title">${project.title}</h3>
           <p class="project-summary">${project.summary}</p>
           <div class="project-tech">
@@ -488,6 +552,7 @@ function renderProjects() {
               .map((tech) => `<span class="tech-tag">${tech}</span>`)
               .join("")}
           </div>
+          ${outcomesHTML}
         </div>
       </div>`;
     })
@@ -564,33 +629,60 @@ function closeProjectModal() {
 
 // =========================================================
 //        RENDER CLIENTS - infinite carousel
-// Each logo is now a clickable link. The carousel animation
-// pauses when the user hovers over the container.
+// ─────────────────────────────────────────────────────────
+// Supports two card modes:
+//   • logo present  → shows the image (grayscale → color on hover)
+//   • no logo yet   → shows a gold initial pill + company name
+// Each card links out via website > facebook > instagram,
+// indicated by a small icon badge in the corner.
 // =========================================================
 function renderClients() {
   const clientsTrack = document.getElementById("clientsTrack");
   if (!clientsTrack) return;
+  if (!clients.length) return;
 
   const clientsCarousel = document.querySelector(".clients-carousel");
 
-  // Duplicate the array so the seamless loop works
-  const clientsForLoop = [...clients, ...clients];
-  clientsTrack.innerHTML = clientsForLoop
-    .map(
-      (client) => `
+  // FA icon class per link type
+  const linkIconMap = {
+    website: "fas fa-globe",
+    facebook: "fab fa-facebook",
+    instagram: "fab fa-instagram",
+  };
+
+  function buildCard(client) {
+    const initial = client.name.charAt(0).toUpperCase();
+    const iconClass =
+      linkIconMap[client.linkType] || "fas fa-external-link-alt";
+    const hasLogo = Boolean(client.logo);
+
+    const innerHTML = hasLogo
+      ? `<img src="${client.logo}" alt="${client.name} logo" loading="lazy" />`
+      : `<div class="client-initial-pill" aria-hidden="true">${initial}</div>
+         <span class="client-name-label">${client.name}</span>`;
+
+    return `
       <a
-        href="${client.url}"
+        href="${client.link}"
         target="_blank"
         rel="noopener noreferrer"
-        class="client-logo"
+        class="client-logo${hasLogo ? "" : " client-logo-text"}"
+        role="listitem"
         aria-label="Visit ${client.name}"
+        data-tooltip="${client.name}"
       >
-        <img src="${client.logo}" alt="${client.name} logo" />
-      </a>`,
-    )
-    .join("");
+        ${innerHTML}
+        <span class="client-link-badge" aria-hidden="true">
+          <i class="${iconClass}"></i>
+        </span>
+      </a>`;
+  }
 
-  // Pause animation on hover so users can click logos
+  // Duplicate for seamless infinite scroll
+  const doubled = [...clients, ...clients];
+  clientsTrack.innerHTML = doubled.map(buildCard).join("");
+
+  // Pause on hover so users can click
   if (clientsCarousel) {
     clientsCarousel.addEventListener("mouseenter", () => {
       clientsTrack.style.animationPlayState = "paused";
@@ -690,21 +782,22 @@ function initCounters() {
   const statsBar = document.querySelector(".stats-bar");
   if (!statsBar) return;
 
-  const experienceCountEl = document.getElementById("experienceCount");
+  // experienceCount is hardcoded "1+" in HTML — do not animate
   const projectsCountEl = document.getElementById("projectsCount");
   const clientsCountEl = document.getElementById("clientsCount");
+  const techCountEl = document.getElementById("techCount");
 
-  const totalExperiences = 1;
   const totalProjects = 7;
   const totalClients = 3;
+  const totalTech = 15;
 
   const counterObserver = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          animateCounter(experienceCountEl, totalExperiences);
           animateCounter(projectsCountEl, totalProjects);
           animateCounter(clientsCountEl, totalClients);
+          animateCounter(techCountEl, totalTech);
           obs.unobserve(entry.target);
         }
       });
@@ -742,6 +835,11 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProjects();
     renderClients();
     renderTestimonials();
+
+    // --- Refresh Lucide icons for dynamically rendered content ---
+    if (typeof lucide !== "undefined") {
+      lucide.createIcons();
+    }
 
     // --- Mobile menu ---
     initMobileMenu();
@@ -826,4 +924,340 @@ document.addEventListener("DOMContentLoaded", () => {
     // so the page is never stuck on the loader screen.
     setTimeout(hideLoader, 400);
   }
+});
+
+// === AUDIT V2 ADDITIONS ===
+
+// =========================================================
+//                  LIGHT / DARK THEME TOGGLE
+// =========================================================
+function initThemeToggle() {
+  const toggle = document.getElementById("themeToggle");
+  if (!toggle) return;
+
+  const iconDark = toggle.querySelector(".theme-icon-dark");
+  const iconLight = toggle.querySelector(".theme-icon-light");
+
+  function applyTheme(theme) {
+    if (theme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+      if (iconDark) iconDark.style.display = "none";
+      if (iconLight) iconLight.style.display = "inline-block";
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      if (iconDark) iconDark.style.display = "inline-block";
+      if (iconLight) iconLight.style.display = "none";
+    }
+  }
+
+  // Read saved preference
+  const saved = localStorage.getItem("theme") || "dark";
+  applyTheme(saved);
+
+  toggle.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem("theme", next);
+    applyTheme(next);
+  });
+}
+
+// =========================================================
+//               ACTIVE NAV STATE ON SCROLL
+// =========================================================
+function initActiveNav() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".desktop-nav a");
+  if (!sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.remove("nav-active");
+            if (link.getAttribute("href") === "#" + entry.target.id) {
+              link.classList.add("nav-active");
+            }
+          });
+        }
+      });
+    },
+    { threshold: 0.4 },
+  );
+
+  sections.forEach((s) => observer.observe(s));
+}
+
+// Hook into DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  initThemeToggle();
+  initActiveNav();
+});
+
+// =========================================================
+//           THEME CUSTOMIZER  —  Palette + Font
+// =========================================================
+function initThemeCustomizer() {
+  const PALETTES = [
+    {
+      id: "gold-noir",
+      label: "Gold Noir",
+      swatch: "#D4AF37",
+      rgb: "212,175,55",
+      vars: {
+        "--accent-dark": "#D4AF37",
+        "--accent-light": "#F0D896",
+        "--bg-dark": "#1A1A1A",
+        "--glass-dark": "rgba(255,255,255,0.05)",
+        "--border-dark": "rgba(212,175,55,0.2)",
+        "--shadow-color": "rgba(212,175,55,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#D4AF37,#C49A3A)",
+      liq2: "linear-gradient(135deg,#8B7355,#D4AF37)",
+    },
+    {
+      id: "royal-amethyst",
+      label: "Amethyst",
+      swatch: "#A78BFA",
+      rgb: "167,139,250",
+      vars: {
+        "--accent-dark": "#A78BFA",
+        "--accent-light": "#C4B5FD",
+        "--bg-dark": "#0F0A1E",
+        "--glass-dark": "rgba(167,139,250,0.06)",
+        "--border-dark": "rgba(167,139,250,0.25)",
+        "--shadow-color": "rgba(167,139,250,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#A78BFA,#7C3AED)",
+      liq2: "linear-gradient(135deg,#4C1D95,#A78BFA)",
+    },
+    {
+      id: "cyber-teal",
+      label: "Cyber Teal",
+      swatch: "#22D3EE",
+      rgb: "34,211,238",
+      vars: {
+        "--accent-dark": "#22D3EE",
+        "--accent-light": "#67E8F9",
+        "--bg-dark": "#051215",
+        "--glass-dark": "rgba(34,211,238,0.05)",
+        "--border-dark": "rgba(34,211,238,0.22)",
+        "--shadow-color": "rgba(34,211,238,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#22D3EE,#0891B2)",
+      liq2: "linear-gradient(135deg,#083344,#22D3EE)",
+    },
+    {
+      id: "rose-prestige",
+      label: "Rose Prestige",
+      swatch: "#FB7185",
+      rgb: "251,113,133",
+      vars: {
+        "--accent-dark": "#FB7185",
+        "--accent-light": "#FDA4AF",
+        "--bg-dark": "#1A0810",
+        "--glass-dark": "rgba(251,113,133,0.06)",
+        "--border-dark": "rgba(251,113,133,0.25)",
+        "--shadow-color": "rgba(251,113,133,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#FB7185,#E11D48)",
+      liq2: "linear-gradient(135deg,#881337,#FB7185)",
+    },
+    {
+      id: "emerald-elite",
+      label: "Emerald",
+      swatch: "#34D399",
+      rgb: "52,211,153",
+      vars: {
+        "--accent-dark": "#34D399",
+        "--accent-light": "#6EE7B7",
+        "--bg-dark": "#051510",
+        "--glass-dark": "rgba(52,211,153,0.05)",
+        "--border-dark": "rgba(52,211,153,0.22)",
+        "--shadow-color": "rgba(52,211,153,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#34D399,#059669)",
+      liq2: "linear-gradient(135deg,#064E3B,#34D399)",
+    },
+    {
+      id: "arctic-frost",
+      label: "Arctic Frost",
+      swatch: "#93C5FD",
+      rgb: "147,197,253",
+      vars: {
+        "--accent-dark": "#93C5FD",
+        "--accent-light": "#BFDBFE",
+        "--bg-dark": "#060D1A",
+        "--glass-dark": "rgba(147,197,253,0.05)",
+        "--border-dark": "rgba(147,197,253,0.22)",
+        "--shadow-color": "rgba(147,197,253,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#93C5FD,#2563EB)",
+      liq2: "linear-gradient(135deg,#1E3A5F,#93C5FD)",
+    },
+    {
+      id: "amber-forge",
+      label: "Amber Forge",
+      swatch: "#FBBF24",
+      rgb: "251,191,36",
+      vars: {
+        "--accent-dark": "#FBBF24",
+        "--accent-light": "#FDE68A",
+        "--bg-dark": "#14100A",
+        "--glass-dark": "rgba(251,191,36,0.05)",
+        "--border-dark": "rgba(251,191,36,0.22)",
+        "--shadow-color": "rgba(251,191,36,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#FBBF24,#D97706)",
+      liq2: "linear-gradient(135deg,#78350F,#FBBF24)",
+    },
+    {
+      id: "crimson-luxe",
+      label: "Crimson",
+      swatch: "#F87171",
+      rgb: "248,113,113",
+      vars: {
+        "--accent-dark": "#F87171",
+        "--accent-light": "#FCA5A5",
+        "--bg-dark": "#1A0808",
+        "--glass-dark": "rgba(248,113,113,0.06)",
+        "--border-dark": "rgba(248,113,113,0.25)",
+        "--shadow-color": "rgba(248,113,113,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#F87171,#DC2626)",
+      liq2: "linear-gradient(135deg,#7F1D1D,#F87171)",
+    },
+    {
+      id: "silver-ghost",
+      label: "Silver Ghost",
+      swatch: "#CBD5E1",
+      rgb: "203,213,225",
+      vars: {
+        "--accent-dark": "#CBD5E1",
+        "--accent-light": "#E2E8F0",
+        "--bg-dark": "#0A0D12",
+        "--glass-dark": "rgba(203,213,225,0.05)",
+        "--border-dark": "rgba(203,213,225,0.22)",
+        "--shadow-color": "rgba(203,213,225,0.4)",
+      },
+      liq1: "linear-gradient(135deg,#CBD5E1,#64748B)",
+      liq2: "linear-gradient(135deg,#1E293B,#CBD5E1)",
+    },
+    {
+      id: "coral-flame",
+      label: "Coral Flame",
+      swatch: "#FB923C",
+      rgb: "251,146,60",
+      vars: {
+        "--accent-dark": "#FB923C",
+        "--accent-light": "#FDBA74",
+        "--bg-dark": "#150D08",
+        "--glass-dark": "rgba(251,146,60,0.05)",
+        "--border-dark": "rgba(251,146,60,0.22)",
+        "--shadow-color": "rgba(251,146,60,0.5)",
+      },
+      liq1: "linear-gradient(135deg,#FB923C,#EA580C)",
+      liq2: "linear-gradient(135deg,#7C2D12,#FB923C)",
+    },
+  ];
+
+  // Font family feature removed
+
+  // ── Apply palette ──────────────────────────────────────
+  function applyPalette(id) {
+    const p = PALETTES.find((x) => x.id === id) || PALETTES[0];
+    const root = document.documentElement;
+    Object.entries(p.vars).forEach(([k, v]) => root.style.setProperty(k, v));
+    root.style.setProperty("--accent-rgb", p.rgb);
+
+    // Update liquid-bg gradient inline
+    let dyn = document.getElementById("cs-dyn");
+    if (!dyn) {
+      dyn = document.createElement("style");
+      dyn.id = "cs-dyn";
+      document.head.appendChild(dyn);
+    }
+    dyn.textContent = `.liquid-bg::before{background:${p.liq1}!important;}.liquid-bg::after{background:${p.liq2}!important;}`;
+
+    // Active swatch ring
+    document
+      .querySelectorAll(".cs-swatch")
+      .forEach((s) =>
+        s.classList.toggle("cs-active", s.dataset.palette === id),
+      );
+
+    // Update label
+    const nameEl = document.getElementById("cs-palette-name");
+    if (nameEl) nameEl.textContent = p.label;
+
+    localStorage.setItem("ua-palette", id);
+  }
+
+  // ── Build DOM ──────────────────────────────────────────
+  const trigger = document.createElement("button");
+  trigger.id = "cs-trigger";
+  trigger.setAttribute("aria-label", "Open theme customizer");
+  trigger.innerHTML = '<i class="fas fa-palette"></i>';
+
+  const panel = document.createElement("div");
+  panel.id = "cs-panel";
+  panel.setAttribute("role", "dialog");
+  panel.setAttribute("aria-label", "Theme Customizer");
+  panel.innerHTML = `
+    <div class="cs-head">
+      <span class="cs-title"><i class="fas fa-sliders-h"></i>&nbsp; Customize</span>
+      <button class="cs-close" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">
+        <i class="fas fa-circle-half-stroke"></i>
+        <span>Color Palette</span>
+      </div>
+      <div class="cs-swatches">
+        ${PALETTES.map((p) => `<button class="cs-swatch" data-palette="${p.id}" style="background:${p.swatch}" title="${p.label}" aria-label="${p.label}"></button>`).join("")}
+      </div>
+      <div class="cs-active-label" id="cs-palette-name">Gold Noir</div>
+    </div>
+
+  `;
+
+  document.body.appendChild(panel);
+  document.body.appendChild(trigger);
+
+  // ── Events ─────────────────────────────────────────────
+  trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = panel.classList.toggle("cs-open");
+    trigger.classList.toggle("cs-open", open);
+  });
+
+  panel.querySelector(".cs-close").addEventListener("click", () => {
+    panel.classList.remove("cs-open");
+    trigger.classList.remove("cs-open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!panel.contains(e.target) && e.target !== trigger) {
+      panel.classList.remove("cs-open");
+      trigger.classList.remove("cs-open");
+    }
+  });
+
+  panel.querySelectorAll(".cs-swatch").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      applyPalette(btn.dataset.palette);
+    });
+  });
+
+  // ── Restore saved on load ──────────────────────────────
+  const savedPalette = localStorage.getItem("ua-palette") || "gold-noir";
+  applyPalette(savedPalette);
+}
+
+// Hook customizer into DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  initThemeCustomizer();
 });

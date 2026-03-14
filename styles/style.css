@@ -4,10 +4,10 @@
 :root {
   --bg-dark: #1a1a1a;
   --text-dark: #e8e8e8;
-  --accent-dark: #d4af37;
+  --accent-dark: var(--accent-rgb-hex);
   --glass-dark: rgba(255, 255, 255, 0.05);
-  --border-dark: rgba(212, 175, 55, 0.2);
-  --shadow-color: rgba(212, 175, 55, 0.5);
+  --border-dark: rgba(var(--accent-rgb), 0.2);
+  --shadow-color: rgba(var(--accent-rgb), 0.5);
   --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -123,14 +123,18 @@ body.modal-open {
   top: -200px;
   left: -200px;
   animation-delay: 0s;
-  background: linear-gradient(135deg, #d4af37, #c49a3a);
+  background: linear-gradient(
+    135deg,
+    var(--accent-rgb-hex),
+    var(--accent-dark)
+  );
 }
 
 .liquid-bg::after {
   bottom: -200px;
   right: -200px;
   animation-delay: 10s;
-  background: linear-gradient(135deg, #8b7355, #d4af37);
+  background: linear-gradient(135deg, #8b7355, var(--accent-rgb-hex));
 }
 
 @keyframes liquidFloat {
@@ -210,7 +214,7 @@ body.modal-open {
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--accent-dark), #f0d896);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -399,8 +403,8 @@ body.modal-open {
   /* Layered glow: sharp gold ring + soft ambient halo */
   box-shadow:
     0 0 0 var(--coin-border) var(--accent-dark),
-    0 0 30px 4px rgba(212, 175, 55, 0.55),
-    0 0 70px 8px rgba(212, 175, 55, 0.2);
+    0 0 30px 4px rgba(var(--accent-rgb), 0.55),
+    0 0 70px 8px rgba(var(--accent-rgb), 0.2);
   animation: coinGlow 3s ease-in-out infinite;
 }
 
@@ -409,14 +413,14 @@ body.modal-open {
   100% {
     box-shadow:
       0 0 0 var(--coin-border) var(--accent-dark),
-      0 0 30px 4px rgba(212, 175, 55, 0.55),
-      0 0 70px 8px rgba(212, 175, 55, 0.2);
+      0 0 30px 4px rgba(var(--accent-rgb), 0.55),
+      0 0 70px 8px rgba(var(--accent-rgb), 0.2);
   }
   50% {
     box-shadow:
-      0 0 0 var(--coin-border) #f0d896,
-      0 0 45px 8px rgba(212, 175, 55, 0.75),
-      0 0 90px 16px rgba(212, 175, 55, 0.3);
+      0 0 0 var(--coin-border) var(--accent-light),
+      0 0 45px 8px rgba(var(--accent-rgb), 0.75),
+      0 0 90px 16px rgba(var(--accent-rgb), 0.3);
   }
 }
 
@@ -473,7 +477,7 @@ body.modal-open {
   background:
     radial-gradient(
       circle at 40% 35%,
-      rgba(212, 175, 55, 0.18) 0%,
+      rgba(var(--accent-rgb), 0.18) 0%,
       transparent 65%
     ),
     linear-gradient(160deg, #1f1c12 0%, #1a1a1a 45%, #0d0d0d 100%);
@@ -513,14 +517,14 @@ body.modal-open {
    */
   background: linear-gradient(
     145deg,
-    #f0d896 0%,
+    var(--accent-light) 0%,
     var(--accent-dark) 45%,
-    #9a7820 100%
+    var(--accent-light) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.6));
+  filter: drop-shadow(0 2px 6px rgba(var(--accent-rgb), 0.6));
 }
 
 /* The check mark punched over the centre of the certificate */
@@ -540,7 +544,7 @@ body.modal-open {
   font-weight: 900;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #f0d896, var(--accent-dark));
+  background: linear-gradient(90deg, var(--accent-light), var(--accent-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -575,7 +579,7 @@ body.modal-open {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--accent-dark), #f0d896);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -617,7 +621,7 @@ body.modal-open {
   transform: translateY(-3px);
   box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.3),
-    0 0 15px rgba(212, 175, 55, 0.25);
+    0 0 15px rgba(var(--accent-rgb), 0.25);
 }
 
 /* =========================================================
@@ -633,7 +637,7 @@ body.modal-open {
   font-weight: 800;
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, var(--accent-dark), #f0d896);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -708,7 +712,7 @@ body.modal-open {
 
 .category-btn:hover:not(.active) {
   border-color: var(--accent-dark);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.2);
 }
 
 .skills-display-grid {
@@ -746,8 +750,8 @@ body.modal-open {
   transform: translateY(-8px) scale(1.03);
   box-shadow:
     0 15px 30px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(212, 175, 55, 0.2);
-  border-color: rgba(212, 175, 55, 0.4);
+    0 0 20px rgba(var(--accent-rgb), 0.2);
+  border-color: rgba(var(--accent-rgb), 0.4);
 }
 
 /* Skill pop-in animation */
@@ -903,7 +907,7 @@ body.modal-open {
   transform: translateY(-10px) scale(1.03);
   box-shadow:
     0 15px 30px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(212, 175, 55, 0.2);
+    0 0 20px rgba(var(--accent-rgb), 0.2);
 }
 
 .project-image {
@@ -936,8 +940,8 @@ body.modal-open {
 }
 
 .type-client {
-  background: rgba(212, 175, 55, 0.1);
-  color: #b8860b;
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent-dark);
 }
 .type-personal {
   background: rgba(255, 99, 71, 0.1);
@@ -1027,7 +1031,7 @@ body.modal-open {
   align-items: center;
   gap: 0.35rem;
   padding: 0.35rem 0.9rem 0.35rem 0.75rem;
-  background: linear-gradient(135deg, var(--accent-dark), #c49a1a);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent-dark));
   color: #1a1a1a;
   font-size: 0.7rem;
   font-weight: 800;
@@ -1036,7 +1040,7 @@ body.modal-open {
   border-radius: 0 20px 0 14px; /* top-right follows card curve, bottom-left soft */
   z-index: 3;
   box-shadow:
-    0 2px 8px rgba(212, 175, 55, 0.45),
+    0 2px 8px rgba(var(--accent-rgb), 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   pointer-events: none;
   user-select: none;
@@ -1065,7 +1069,7 @@ body.modal-open {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  background: rgba(212, 175, 55, 0.2);
+  background: rgba(var(--accent-rgb), 0.2);
   color: var(--accent-dark);
   border: 1px solid var(--border-dark);
   transition: all 0.5s ease;
@@ -1221,7 +1225,7 @@ body.modal-open {
 
 .client-logo:hover {
   transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.2);
 }
 
 .client-logo img {
@@ -1271,7 +1275,7 @@ body.modal-open {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 15px 30px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(212, 175, 55, 0.2);
+    0 0 20px rgba(var(--accent-rgb), 0.2);
 }
 
 .collab-icon {
@@ -1282,7 +1286,7 @@ body.modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(212, 175, 55, 0.1);
+  background: rgba(var(--accent-rgb), 0.1);
   border: 1px solid var(--border-dark);
   font-size: 1.75rem;
   color: var(--accent-dark);
@@ -1290,15 +1294,15 @@ body.modal-open {
 }
 
 .collab-card:hover .collab-icon {
-  background: rgba(212, 175, 55, 0.2);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  background: rgba(var(--accent-rgb), 0.2);
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
 }
 
 .collab-title {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
-  background: linear-gradient(135deg, var(--accent-dark), #f0d896);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1333,7 +1337,7 @@ body.modal-open {
   transform: translateY(-10px) scale(1.03);
   box-shadow:
     0 15px 30px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(212, 175, 55, 0.2);
+    0 0 20px rgba(var(--accent-rgb), 0.2);
 }
 
 .testimonial-header {
@@ -1428,7 +1432,7 @@ body.modal-open {
   transform: translateY(-5px) scale(1.03);
   box-shadow:
     0 15px 30px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(212, 175, 55, 0.2);
+    0 0 20px rgba(var(--accent-rgb), 0.2);
 }
 
 /* =========================================================
@@ -1459,7 +1463,7 @@ body.modal-open {
   transform: translateY(-5px) rotate(360deg);
   box-shadow:
     0 10px 20px rgba(0, 0, 0, 0.25),
-    0 0 15px rgba(212, 175, 55, 0.2);
+    0 0 15px rgba(var(--accent-rgb), 0.2);
 }
 
 .social-icon::before {
@@ -1647,7 +1651,7 @@ body.modal-open {
   background: linear-gradient(
     120deg,
     transparent 0%,
-    rgba(212, 175, 55, 0.18) 50%,
+    rgba(var(--accent-rgb), 0.18) 50%,
     transparent 100%
   );
   transform: skewX(-18deg);
@@ -1923,4 +1927,3277 @@ a.client-logo {
   .all-projects-section .projects-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* === AUDIT V2 ADDITIONS === */
+
+/* =========================================================
+            HERO ENTRANCE ANIMATION
+   ========================================================= */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-animate {
+  animation: heroFadeUp 0.6s ease-out forwards;
+}
+
+/* =========================================================
+            COIN BACK - TECH PILL BADGES
+   ========================================================= */
+.coin-back-tech {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coin-tech-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+.coin-tech-pill {
+  border: 1.5px solid var(--accent-dark);
+  color: var(--accent-dark);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), 0.1);
+}
+
+/* =========================================================
+            LIGHT / DARK MODE OVERRIDES
+   ========================================================= */
+:root[data-theme="light"] {
+  --bg-dark: #f5f5f0;
+  --text-dark: #1a1a1a;
+  --glass-dark: rgba(255, 255, 255, 0.6);
+  --border-dark: var(--border-dark);
+  --accent-dark: var(--accent-dark);
+  --shadow-color: var(--shadow-color);
+}
+:root[data-theme="light"] body {
+  background: #f5f5f0;
+  color: #1a1a1a;
+}
+:root[data-theme="light"] .glass-card,
+:root[data-theme="light"] .glass-header,
+:root[data-theme="light"] .glass-footer {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: var(--border-dark);
+}
+
+/* =========================================================
+            THEME TOGGLE BUTTON
+   ========================================================= */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--accent-dark);
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.2s ease;
+  margin-right: 8px;
+}
+.theme-toggle-btn:hover {
+  border-color: var(--accent-dark);
+}
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================================
+            ACTIVE NAV STATE
+   ========================================================= */
+.desktop-nav a.nav-active {
+  color: var(--accent-dark);
+  border-bottom: 2px solid var(--accent-dark);
+  padding-bottom: 2px;
+}
+
+/* =========================================================
+            AVAILABLE FOR WORK BADGE
+   ========================================================= */
+@keyframes badgeBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.3);
+  }
+}
+.available-badge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--bg-dark);
+  border: 1.5px solid var(--accent-dark);
+  border-radius: 999px;
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  animation: badgeBounce 2s ease-in-out infinite;
+  box-shadow: 0 4px 24px rgba(var(--accent-rgb), 0.2);
+  transition: box-shadow 0.2s ease;
+}
+.available-badge:hover {
+  box-shadow: 0 6px 32px rgba(var(--accent-rgb), 0.4);
+}
+.available-dot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: dotPulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+            TESTIMONIALS SOCIAL PROOF CTA
+   ========================================================= */
+.testimonials-cta {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-dark);
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+.testimonials-cta a {
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* =========================================================
+            UPGRADED FOOTER
+   ========================================================= */
+.footer-upgraded {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+}
+.footer-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+.footer-quick-links a {
+  color: var(--text-dark);
+  opacity: 0.7;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+}
+.footer-quick-links a:hover {
+  opacity: 1;
+  color: var(--accent-dark);
+}
+.footer-social-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.footer-social-row a {
+  color: var(--text-dark);
+  opacity: 0.7;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+.footer-social-row a:hover {
+  opacity: 1;
+  color: var(--accent-dark);
+}
+.footer-social-row svg {
+  width: 22px;
+  height: 22px;
+}
+.footer-availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  opacity: 0.8;
+}
+.footer-avail-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+.footer-cv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--accent-dark);
+  padding: 7px 16px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.footer-cv-link:hover {
+  background: rgba(var(--accent-rgb), 0.1);
+}
+.footer-cv-link svg {
+  width: 16px;
+  height: 16px;
+}
+.footer-copyright {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  color: var(--text-dark);
+}
+
+/* =========================================================
+            ABOUT PAGE — CAREER TIMELINE
+   ========================================================= */
+.timeline {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-dark), transparent);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--accent-dark);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15);
+}
+.timeline-date {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  letter-spacing: 0.05em;
+  min-width: 90px;
+  text-align: right;
+  padding-top: 0.1rem;
+}
+.timeline-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+.timeline-content p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  color: var(--text-dark);
+}
+
+/* =========================================================
+            ABOUT PAGE — CURRENTLY BLOCK
+   ========================================================= */
+.currently-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .currently-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.currently-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+.currently-card svg {
+  width: 28px;
+  height: 28px;
+  color: var(--accent-dark);
+  margin: 0 auto 0.75rem;
+  display: block;
+}
+.currently-card h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 0.4rem;
+}
+.currently-card p {
+  font-size: 0.88rem;
+  opacity: 0.75;
+}
+
+/* =========================================================
+            SERVICES PAGE
+   ========================================================= */
+.service-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .service-tier-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+}
+.service-card svg {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-dark);
+  margin-bottom: 1rem;
+}
+.service-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.service-card p {
+  font-size: 0.88rem;
+  opacity: 0.75;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+.service-card ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+.service-card ul li {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  padding: 0.2rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.service-card ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--accent-dark);
+  border-radius: 50%;
+}
+.service-turnaround {
+  font-size: 0.78rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+.service-cta-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1.5px solid var(--accent-dark);
+  color: var(--accent-dark);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.service-cta-btn:hover {
+  background: var(--accent-dark);
+  color: #1a1a1a;
+}
+
+/* =========================================================
+            SERVICES PAGE — PROCESS FLOW
+   ========================================================= */
+.process-flow {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.process-step {
+  flex: 1;
+  min-width: 130px;
+  text-align: center;
+  position: relative;
+  padding: 0 0.5rem;
+}
+.process-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: -12px;
+  width: 24px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent-dark) 0,
+    var(--accent-dark) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+.process-number {
+  width: 52px;
+  height: 52px;
+  background: rgba(var(--accent-rgb), 0.12);
+  border: 2px solid var(--accent-dark);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+}
+.process-step svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent-dark);
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+.process-step h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.process-step p {
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
+
+/* =========================================================
+            CONTACT PAGE — CHANNEL CARDS
+   ========================================================= */
+.contact-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+@media (max-width: 540px) {
+  .contact-channels-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.contact-channel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem 1.5rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  text-align: center;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.contact-channel-card:hover {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.15);
+}
+.contact-channel-card svg {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-dark);
+}
+.contact-channel-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.contact-channel-card span {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* =========================================================
+            CONTACT PAGE — CALENDLY PLACEHOLDER
+   ========================================================= */
+.calendly-placeholder {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.5rem;
+}
+.calendly-placeholder h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.calendly-placeholder p {
+  font-size: 0.88rem;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+            PROJECTS PAGE — FEATURED CARD + OUTCOMES
+   ========================================================= */
+.project-card.featured-card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .project-card.featured-card {
+    grid-template-columns: 1fr;
+  }
+}
+.featured-badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #1a1a1a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+.outcome-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.outcome-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  opacity: 0.65;
+}
+.outcome-tag svg {
+  width: 13px;
+  height: 13px;
+  color: var(--accent-dark);
+}
+
+/* Currently Building Card */
+.currently-building-card {
+  border: 1.5px dashed var(--border-dark);
+}
+@keyframes hammerPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.hammer-icon-pulse svg {
+  animation: hammerPulse 1.5s ease-in-out infinite;
+  width: 28px;
+  height: 28px;
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+}
+.progress-bar-wrap {
+  background: rgba(var(--accent-rgb), 0.1);
+  border-radius: 999px;
+  height: 6px;
+  width: 100%;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 20%;
+  background: var(--accent-dark);
+  border-radius: 999px;
+}
+.status-in-progress {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-dark);
+  border: 1px solid var(--accent-dark);
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-top: 0.75rem;
+}
+
+/* =========================================================
+            ABOUT PAGE — PROFILE IMAGE
+   ========================================================= */
+.about-profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-dark);
+  display: block;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.12);
+}
+
+/* =========================================================
+            PAGE HERO BLOCKS (shared, all pages)
+   ========================================================= */
+.page-hero {
+  padding: 8rem 1rem 4rem;
+  text-align: center;
+}
+.page-hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+.page-hero-sub {
+  font-size: 1.05rem;
+  opacity: 0.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* === AUDIT V2.1 REFINEMENTS === */
+
+/* =========================================================
+   MOBILE MENU — raise z-index above available badge
+   ========================================================= */
+.mobile-menu {
+  z-index: 50000 !important;
+}
+
+/* =========================================================
+   AVAILABLE FOR WORK BADGE — button style, icon, no dot
+   ========================================================= */
+.available-badge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: var(--bg-dark);
+  border: 1.5px solid var(--accent-dark);
+  border-radius: 10px;
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  animation: badgeBounce 2s ease-in-out infinite;
+  box-shadow: 0 4px 24px rgba(var(--accent-rgb), 0.25);
+  transition:
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+.available-badge:hover {
+  background: rgba(var(--accent-rgb), 0.1);
+  box-shadow: 0 6px 32px rgba(var(--accent-rgb), 0.4);
+}
+.available-badge i {
+  font-size: 0.9rem;
+}
+/* hide old green dot if still present */
+.available-dot {
+  display: none !important;
+}
+
+/* =========================================================
+   TESTIMONIALS CTA — styled card with button
+   ========================================================= */
+.testimonials-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1.75rem 2rem;
+  background: rgba(var(--accent-rgb), 0.05);
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  border-radius: 16px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.testimonials-cta p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  color: var(--text-dark);
+}
+.testimonials-cta a,
+.testimonials-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 11px 26px;
+  background: var(--accent-dark);
+  color: #1a1a1a !important;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  border: none;
+}
+.testimonials-cta a:hover,
+.testimonials-cta-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   COIN BACK — professional verified badge (FA icons)
+   ========================================================= */
+.coin-back-tech {
+  display: none !important;
+}
+.coin-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.coin-back-icon-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 6px;
+}
+.coin-icon-cert {
+  font-size: 3rem;
+  color: var(--accent-dark);
+  line-height: 1;
+}
+.coin-icon-check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.15rem;
+  color: #1a1a1a;
+  font-weight: 900;
+}
+.coin-back-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--accent-dark);
+}
+.coin-back-sub {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  opacity: 0.65;
+  color: var(--text-dark);
+}
+
+/* =========================================================
+   PROJECT CARDS — consistent outcome tag alignment
+   ========================================================= */
+.project-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.project-tech {
+  flex: 1;
+}
+.outcome-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(var(--accent-rgb), 0.12);
+}
+.outcome-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+.outcome-tag i {
+  color: var(--accent-dark);
+  font-size: 0.7rem;
+}
+
+/* =========================================================
+   FOOTER — icon-only social row + availability icon
+   ========================================================= */
+.footer-avail-icon {
+  color: #22c55e;
+  font-size: 0.9rem;
+}
+.footer-avail-dot {
+  display: none !important;
+}
+.footer-cv-link {
+  display: none !important;
+}
+.footer-social-row svg {
+  display: none !important;
+}
+.footer-social-row a {
+  color: var(--text-dark);
+  opacity: 0.7;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+.footer-social-row a:hover {
+  opacity: 1;
+  color: var(--accent-dark);
+}
+
+/* =========================================================
+   TIMELINE — left-aligned, clean
+   ========================================================= */
+.timeline {
+  position: relative;
+  max-width: 620px;
+  margin: 2rem auto 0;
+  padding: 0.5rem 0 0.5rem 3rem;
+  text-align: left;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-dark), transparent);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.25rem;
+  display: block;
+}
+.timeline-dot {
+  position: absolute;
+  left: -2.65rem;
+  top: 0.45rem;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-dark);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.15);
+  flex-shrink: 0;
+  min-width: unset;
+}
+.timeline-date {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  min-width: unset;
+  text-align: left;
+  padding-top: 0;
+}
+.timeline-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.timeline-content p {
+  font-size: 0.87rem;
+  opacity: 0.68;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SERVICES — left-align bullet list content
+   ========================================================= */
+.service-card ul {
+  text-align: left !important;
+}
+.service-card ul li {
+  text-align: left !important;
+}
+
+/* =========================================================
+   CONTACT — remove schedule-call section via class
+   ========================================================= */
+.calendly-placeholder {
+  display: none !important;
+}
+
+/* =========================================================
+   FEATURED CARD OVERRIDE — revert to normal grid card
+   ========================================================= */
+.project-card.featured-card {
+  grid-column: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: unset !important;
+}
+.featured-badge {
+  display: none !important;
+}
+
+/* =========================================================
+   THEME TOGGLE — FA icon sizing
+   ========================================================= */
+.theme-toggle-btn i {
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+}
+
+/* =========================================================
+   ABOUT PAGE — Philosophy grid (3-col, responsive)
+   ========================================================= */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 2rem auto 0;
+}
+@media (max-width: 768px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.philosophy-card {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.philosophy-icon {
+  font-size: 1.8rem;
+  color: var(--accent-dark);
+  display: block;
+  margin: 0 auto 1rem;
+}
+.philosophy-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.philosophy-card p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  line-height: 1.65;
+}
+
+/* Currently card icon (FA) */
+.currently-icon {
+  font-size: 1.5rem;
+  color: var(--accent-dark);
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+/* About CTA card */
+.about-cta-card {
+  padding: 3rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(var(--accent-rgb), 0.06);
+  border-color: rgba(var(--accent-rgb), 0.25);
+}
+.about-cta-card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+/* =========================================================
+   SERVICES PAGE — tier icon (FA)
+   ========================================================= */
+.service-tier-icon {
+  font-size: 1.8rem;
+  color: var(--accent-dark);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* process step FA icons */
+.process-step i {
+  font-size: 1.1rem;
+  color: var(--accent-dark);
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+/* =========================================================
+   CONTACT PAGE — availability card
+   ========================================================= */
+.contact-avail-card {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.contact-avail-card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.contact-avail-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.contact-avail-icon {
+  color: #22c55e;
+  font-size: 1.15rem;
+}
+.contact-avail-card p {
+  font-size: 0.85rem;
+  opacity: 0.65;
+}
+
+/* contact channel card — FA icons */
+.contact-channel-card i {
+  font-size: 2rem;
+  color: var(--accent-dark);
+}
+
+/* =========================================================
+   PROJECTS PAGE — Currently Building card (FA hammer)
+   ========================================================= */
+.currently-building-card {
+  border: 1.5px dashed var(--border-dark);
+  padding: 2rem;
+  text-align: center;
+  max-width: 480px;
+  margin: 1.5rem auto 0;
+}
+.hammer-icon-pulse i {
+  animation: hammerPulse 1.5s ease-in-out infinite;
+  font-size: 1.75rem;
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.currently-building-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.currently-building-card p {
+  font-size: 0.88rem;
+  opacity: 0.7;
+  margin-bottom: 0.75rem;
+}
+
+/* =========================================================
+   AUDIT V2.2 — FINAL POLISH PASS
+   ========================================================= */
+
+/* ─────────────────────────────────────────────────────────
+   FIX 1: PROJECT TYPE TAGS — inline only, never full-width
+   ───────────────────────────────────────────────────────── */
+.project-type-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+/* Ensure the tag itself stays auto-width inside the flex row */
+.project-type-tag {
+  display: inline-block !important;
+  width: auto !important;
+  align-self: auto !important;
+  flex: none !important;
+  white-space: nowrap;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.project-type-tag:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 2: REPLACE ALL GREEN → GOLD/AMBER
+   ───────────────────────────────────────────────────────── */
+/* Footer availability icon */
+.footer-avail-icon {
+  color: var(--accent-dark) !important;
+}
+/* Contact page availability icon */
+.contact-avail-icon {
+  color: var(--accent-dark) !important;
+}
+/* Available badge icon (briefcase already gold via color: var(--accent-dark)) */
+.available-dot {
+  background: var(--accent-dark) !important;
+}
+/* Any remaining green dots */
+.footer-avail-dot {
+  background: var(--accent-dark) !important;
+}
+/* Outcome tags: check-circle and bolt icons in gold */
+.outcome-tag i {
+  color: var(--accent-dark) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 3: THEME TOGGLE — match hamburger button exactly
+   ───────────────────────────────────────────────────────── */
+.theme-toggle-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--border-dark) !important;
+  background: var(--glass-dark) !important;
+  color: var(--accent-dark) !important;
+  cursor: pointer;
+  font-size: 1.1rem !important;
+  padding: 0 !important;
+  margin-right: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.35s var(--spring, cubic-bezier(0.34, 1.56, 0.64, 1)) !important;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:hover {
+  border-color: var(--accent-dark) !important;
+  background: rgba(var(--accent-rgb), 0.12) !important;
+  transform: scale(1.05);
+}
+/* mobile-menu-btn already 44×44 — keep identical */
+.mobile-menu-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border-dark);
+  background: var(--glass-dark);
+  color: var(--text-dark);
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s var(--spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  flex-shrink: 0;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--accent-dark);
+  background: rgba(var(--accent-rgb), 0.08);
+  transform: scale(1.05);
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 4: TIMELINE — dot perfectly centered ON the line
+   ──────────────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  max-width: 640px;
+  margin: 2rem auto 0;
+  padding: 0.5rem 0 0.5rem 2.75rem; /* 44px left padding */
+  text-align: left;
+}
+/* Vertical line anchored at left: 14px — center of 28px dot area */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px; /* center of 28px (dot width 12px + space) */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-dark) 8%,
+    var(--accent-dark) 92%,
+    transparent
+  );
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 0; /* content sits at parent padding */
+  display: block;
+}
+/* Dot: 12px wide, centered on the 2px line at left:14px
+   line center = 14px + 1px = 15px from timeline left
+   dot left edge = 15px - 6px = 9px from timeline left
+   timeline has padding-left: 44px
+   so dot left relative to item = 9px - 44px = -35px = approx -2.2rem */
+.timeline-dot {
+  position: absolute;
+  left: -2.2rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-dark);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px rgba(var(--accent-rgb), 0.18),
+    0 0 12px rgba(var(--accent-rgb), 0.25);
+  transform: none;
+  transition: box-shadow 0.3s ease;
+  z-index: 1;
+}
+.timeline-item:hover .timeline-dot {
+  box-shadow:
+    0 0 0 6px rgba(var(--accent-rgb), 0.25),
+    0 0 20px rgba(var(--accent-rgb), 0.4);
+}
+.timeline-date {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.timeline-content h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+.timeline-content p {
+  font-size: 0.87rem;
+  opacity: 0.65;
+  line-height: 1.65;
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 5: PROCESS FLOW — snake layout on mobile w/ FA arrows
+   ───────────────────────────────────────────────────────── */
+
+/* ── Desktop: horizontal row (keep existing, refine) ── */
+.process-flow {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 960px;
+  margin: 2rem auto 0;
+  flex-wrap: nowrap;
+  position: relative;
+}
+.process-step {
+  flex: 1;
+  min-width: 130px;
+  text-align: center;
+  position: relative;
+  padding: 0 0.75rem;
+  transition: transform 0.35s ease;
+}
+.process-step:hover {
+  transform: translateY(-4px);
+}
+/* Horizontal dashed connector between steps (desktop only) */
+.process-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 26px;
+  right: -10px;
+  width: 20px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent-dark) 0,
+    var(--accent-dark) 4px,
+    transparent 4px,
+    transparent 9px
+  );
+  opacity: 0.5;
+}
+.process-number {
+  width: 52px;
+  height: 52px;
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 2px solid var(--accent-dark);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.process-step:hover .process-number {
+  background: rgba(var(--accent-rgb), 0.2);
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+}
+.process-step i {
+  font-size: 1.1rem;
+  color: var(--accent-dark);
+  display: block;
+  margin: 0 auto 0.5rem;
+  transition: transform 0.3s ease;
+}
+.process-step:hover i {
+  transform: scale(1.2);
+}
+.process-step h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.process-step p {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  line-height: 1.55;
+}
+
+/* ── Mobile: vertical snake with arrow connectors ── */
+@media (max-width: 640px) {
+  .process-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    position: relative;
+  }
+  /* Remove desktop horizontal connector */
+  .process-step:not(:last-child)::after {
+    display: none;
+  }
+  .process-step {
+    padding: 1rem 0.5rem 0.5rem;
+    position: relative;
+  }
+
+  /* ── Snake connectors using ::before on each non-first step ── */
+
+  /* Step 2 (col 2, row 1): arrow coming from left (step 1 → step 2) */
+  .process-step:nth-child(2)::before {
+    content: "\f061"; /* fa-arrow-right */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-dark);
+    position: absolute;
+    top: 50%;
+    left: -16px;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  /* Step 3 (col 1, row 2): arrow from step 2 going down-left
+     We place the down-left connector BELOW step 2 */
+  .process-step:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    /* corner arrow — handled via step 3 ::before */
+    display: none;
+  }
+  .process-step:nth-child(3)::before {
+    content: "\f063"; /* fa-arrow-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-dark);
+    position: absolute;
+    top: -16px;
+    right: -16px; /* appears at top-right of step 3, i.e. below step 2 */
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  /* Step 4 (col 2, row 2): arrow from step 3 going right */
+  .process-step:nth-child(4)::before {
+    content: "\f061"; /* fa-arrow-right */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-dark);
+    position: absolute;
+    top: 50%;
+    left: -16px;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  /* Step 5 (row 3, span 2 cols center): arrow from step 4 down */
+  .process-step:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 180px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+  }
+  .process-step:nth-child(5)::before {
+    content: "\f063"; /* fa-arrow-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-dark);
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+}
+
+/* =========================================================
+   AUDIT V2.3 — FINAL FINAL POLISH
+   ========================================================= */
+
+/* ─────────────────────────────────────────────────────────
+   FIX 1: HAMBURGER — restore on mobile (v2.2 broke it)
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 2: MOBILE SUB-NAV
+   ───────────────────────────────────────────────────────── */
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-subnav {
+  display: none;
+  flex-direction: column;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 2px solid rgba(var(--accent-rgb), 0.3);
+  margin: 0.25rem 0 0.5rem 0.6rem;
+  gap: 0.1rem;
+  overflow: hidden;
+  max-height: 0;
+  transition:
+    max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease;
+  opacity: 0;
+}
+.mobile-nav-group.is-active .mobile-subnav {
+  display: flex;
+  max-height: 300px;
+  opacity: 1;
+}
+.mobile-subnav a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  opacity: 0.65;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.mobile-subnav a:hover {
+  opacity: 1;
+  color: var(--accent-dark);
+  background: rgba(var(--accent-rgb), 0.07);
+}
+/* Active parent link styling */
+.mobile-nav-group.is-active > .mobile-nav-link {
+  color: var(--accent-dark);
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 3: TECH TAGS — consistent, no stretching, no flex-1
+   ───────────────────────────────────────────────────────── */
+.project-tech {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.45rem !important;
+  flex: unset !important; /* kills the flex:1 from v2.1 */
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+}
+.tech-tag {
+  display: inline-flex !important;
+  align-items: center;
+  flex: none !important; /* never stretch */
+  width: auto !important;
+  white-space: nowrap;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent-dark);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+.tech-tag:hover {
+  background: rgba(var(--accent-rgb), 0.28);
+  border-color: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 4: AVAILABLE BADGE — icon only, compact circle pill
+   ───────────────────────────────────────────────────────── */
+.available-badge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-dark);
+  background: var(--bg-dark);
+  color: var(--accent-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.25);
+  animation: badgeBounce 2s ease-in-out infinite;
+  transition:
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+.available-badge:hover {
+  background: rgba(var(--accent-rgb), 0.12);
+  box-shadow: 0 6px 30px rgba(var(--accent-rgb), 0.45);
+  transform: scale(1.1);
+  animation: none; /* pause bounce on hover */
+}
+/* Hide the text span inside badge (if any) */
+.available-badge span,
+.available-badge-text {
+  display: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   FIX 5: PROCESS FLOW — remove ALL arrows & dashes
+   ───────────────────────────────────────────────────────── */
+/* Desktop: kill dashed lines */
+.process-step::after {
+  display: none !important;
+  content: none !important;
+}
+/* Mobile: kill all arrow pseudo-elements */
+.process-step::before {
+  display: none !important;
+  content: none !important;
+}
+/* Clean desktop layout without connectors */
+@media (min-width: 641px) {
+  .process-flow {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .process-step {
+    flex: 1;
+    min-width: 120px;
+    max-width: 180px;
+    padding: 0 0.5rem;
+  }
+}
+/* Clean mobile grid layout without connectors */
+@media (max-width: 640px) {
+  .process-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1rem;
+    max-width: 380px;
+    margin: 2rem auto 0;
+  }
+  .process-step:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 180px;
+    margin: 0 auto;
+  }
+  .process-step {
+    padding: 0.5rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE NAV GROUPS — override gap for grouped layout
+   ───────────────────────────────────────────────────────── */
+.mobile-nav {
+  gap: 0.25rem !important;
+}
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0.35rem;
+}
+.mobile-nav-group > .mobile-nav-link {
+  /* slightly smaller margin since sub-nav follows */
+}
+.mobile-nav-group.is-active > .mobile-nav-link {
+  color: var(--accent-dark);
+  background: rgba(var(--accent-rgb), 0.06);
+}
+
+/* =========================================================
+   AUDIT V2.3 — DEFINITIVE FINAL POLISH
+   (last in file = wins all cascade conflicts)
+   ========================================================= */
+
+/* ─────────────────────────────────────────────────────────
+   1. MOBILE HAMBURGER — always visible on ≤768px
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border-dark) !important;
+    background: var(--glass-dark) !important;
+    color: var(
+      --accent-dark
+    ) !important; /* gold icon — visible on both themes */
+    font-size: 1.1rem !important;
+    flex-shrink: 0 !important;
+    transition: all 0.3s ease !important;
+  }
+  .mobile-menu-btn:hover {
+    border-color: var(--accent-dark) !important;
+    background: rgba(var(--accent-rgb), 0.12) !important;
+  }
+  .mobile-menu-btn i {
+    color: var(--accent-dark) !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   2. MOBILE SUB-NAV — per-page context links
+   ───────────────────────────────────────────────────────── */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-nav-link {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.65rem 0.25rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease;
+  border-radius: 8px;
+}
+.mobile-nav-link.active-page {
+  color: var(--accent-dark);
+}
+.mobile-nav-link:hover {
+  color: var(--accent-dark);
+}
+
+/* Sub-nav: hidden by default, revealed on .is-active */
+.mobile-subnav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0.2rem 0 0.6rem 1rem;
+  border-left: 2px solid rgba(var(--accent-rgb), 0.35);
+  margin-left: 0.5rem;
+  /* Smooth reveal */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease 0.05s;
+}
+.mobile-nav-group.is-active .mobile-subnav {
+  max-height: 280px;
+  opacity: 1;
+}
+.mobile-subnav a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  opacity: 0.6;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+  display: block;
+}
+.mobile-subnav a:hover {
+  opacity: 1;
+  color: var(--accent-dark);
+  background: rgba(var(--accent-rgb), 0.07);
+  transform: translateX(3px);
+}
+
+/* ─────────────────────────────────────────────────────────
+   3. TECH TAGS — nuclear reset, consistent across all cards
+   ───────────────────────────────────────────────────────── */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+/* Kill the flex:1 stretcher */
+.project-tech {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.4rem !important;
+  flex: 0 0 auto !important; /* never grow/shrink */
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+}
+.tech-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important; /* never stretch */
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  padding: 0.3rem 0.75rem !important;
+  border-radius: 20px !important;
+  font-size: 0.76rem !important;
+  font-weight: 600 !important;
+  background: rgba(var(--accent-rgb), 0.12) !important;
+  color: var(--accent-dark) !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.22) !important;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.22s ease !important;
+  box-sizing: border-box !important;
+}
+.tech-tag:hover {
+  background: rgba(var(--accent-rgb), 0.25) !important;
+  border-color: var(--accent-dark) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   4. AVAILABLE BADGE — icon-only circle, no text ever
+   ───────────────────────────────────────────────────────── */
+.available-badge {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 200 !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid var(--accent-dark) !important;
+  background: var(--bg-dark) !important;
+  color: var(--accent-dark) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  font-size: 1.15rem !important;
+  padding: 0 !important;
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.25) !important;
+  animation: badgeBounce 2.5s ease-in-out infinite !important;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease !important;
+  overflow: hidden !important;
+}
+.available-badge:hover {
+  background: rgba(var(--accent-rgb), 0.15) !important;
+  box-shadow: 0 6px 28px rgba(var(--accent-rgb), 0.5) !important;
+  transform: scale(1.12) !important;
+  animation: none !important;
+}
+/* Nuke any text node or span inside badge */
+.available-badge > * {
+  pointer-events: none;
+}
+.available-badge i {
+  font-size: 1.1rem !important;
+  color: var(--accent-dark) !important;
+  line-height: 1 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   5. PROCESS FLOW — ZERO connectors, clean on all sizes
+   ───────────────────────────────────────────────────────── */
+
+/* Kill every possible pseudo-element on every process step */
+.process-step::before,
+.process-step::after,
+.process-step:not(:last-child)::after,
+.process-step:nth-child(2)::before,
+.process-step:nth-child(3)::before,
+.process-step:nth-child(4)::before,
+.process-step:nth-child(5)::before {
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+/* Desktop: clean horizontal flex, no gaps between */
+@media (min-width: 641px) {
+  .process-flow {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    max-width: 900px !important;
+    margin: 2rem auto 0 !important;
+  }
+  .process-step {
+    flex: 1 !important;
+    min-width: 110px !important;
+    max-width: 170px !important;
+    text-align: center !important;
+    padding: 0.5rem !important;
+    position: relative !important;
+    transition: transform 0.3s ease !important;
+  }
+  .process-step:hover {
+    transform: translateY(-5px) !important;
+  }
+}
+
+/* Mobile: 2-col grid, step 5 centered — no connectors */
+@media (max-width: 640px) {
+  .process-flow {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.25rem 0.75rem !important;
+    max-width: 360px !important;
+    margin: 2rem auto 0 !important;
+  }
+  .process-step {
+    text-align: center !important;
+    padding: 0.75rem 0.5rem !important;
+    transition: transform 0.3s ease !important;
+  }
+  .process-step:nth-child(5) {
+    grid-column: 1 / -1 !important;
+    max-width: 160px !important;
+    margin: 0 auto !important;
+  }
+  .process-step:hover {
+    transform: translateY(-3px) !important;
+  }
+}
+
+/* Number bubble hover glow */
+.process-step:hover .process-number {
+  background: rgba(var(--accent-rgb), 0.22) !important;
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.35) !important;
+}
+.process-step:hover i {
+  transform: scale(1.18) !important;
+}
+.process-number {
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+.process-step i {
+  transition: transform 0.3s ease !important;
+}
+
+/* ============================================================
+   AUDIT V2.3 — FINAL DEFINITIVE PATCH
+   All !important overrides to guarantee cascade wins
+   ============================================================ */
+
+/* ────────────────────────────────────────────────────────────
+   1. HAMBURGER — always visible on mobile, inside pill,
+      identical size/style to theme toggle
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .header-actions {
+    gap: 0.5rem !important;
+    flex-shrink: 0 !important;
+  }
+  .mobile-menu-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--border-dark) !important;
+    background: var(--glass-dark) !important;
+    color: var(--accent-dark) !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition:
+      border-color 0.25s ease,
+      background 0.25s ease,
+      transform 0.25s ease !important;
+  }
+  .mobile-menu-btn:hover {
+    border-color: var(--accent-dark) !important;
+    background: rgba(var(--accent-rgb), 0.12) !important;
+    transform: scale(1.05) !important;
+  }
+  /* Theme toggle — match hamburger exactly on mobile */
+  .theme-toggle-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--border-dark) !important;
+    background: var(--glass-dark) !important;
+    font-size: 1rem !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   2. MOBILE SUB-NAV — smooth accordion per page
+   ──────────────────────────────────────────────────────────── */
+.mobile-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+}
+.mobile-nav-group {
+  display: flex !important;
+  flex-direction: column !important;
+}
+/* Parent link — tap to expand */
+.mobile-nav-group > .mobile-nav-link {
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+/* Chevron injected on group items */
+.mobile-nav-group > .mobile-nav-link::after {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  content: "\f054" !important; /* fa-chevron-right */
+  font-size: 0.65rem !important;
+  opacity: 0.45 !important;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease !important;
+  display: inline-block !important;
+}
+.mobile-nav-group.is-active > .mobile-nav-link::after {
+  transform: rotate(90deg) !important;
+  opacity: 0.7 !important;
+}
+.mobile-nav-group.is-active > .mobile-nav-link {
+  color: var(--accent-dark) !important;
+}
+/* Sub-nav panel */
+.mobile-subnav {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  padding: 0 0 0 1.1rem !important;
+  border-left: 2px solid rgba(var(--accent-rgb), 0.3) !important;
+  margin: 0 0 0 0.5rem !important;
+  transition:
+    max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease 0.05s,
+    padding 0.3s ease !important;
+}
+.mobile-nav-group.is-active > .mobile-subnav {
+  max-height: 300px !important;
+  opacity: 1 !important;
+  padding: 0.35rem 0 0.6rem 1.1rem !important;
+}
+.mobile-subnav a {
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  color: var(--text-dark) !important;
+  opacity: 0.58 !important;
+  padding: 0.38rem 0.6rem !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  display: block !important;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease !important;
+}
+.mobile-subnav a:hover {
+  opacity: 1 !important;
+  color: var(--accent-dark) !important;
+  background: rgba(var(--accent-rgb), 0.07) !important;
+  transform: translateX(4px) !important;
+}
+
+/* ────────────────────────────────────────────────────────────
+   3. TECH TAGS — pixel-perfect consistency everywhere
+   ──────────────────────────────────────────────────────────── */
+.project-tech {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.4rem !important;
+  flex: 0 0 auto !important;
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.tech-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 20px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  background: rgba(var(--accent-rgb), 0.1) !important;
+  color: var(--accent-dark) !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.2) !important;
+  box-sizing: border-box !important;
+  line-height: 1.4 !important;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.22s ease !important;
+}
+.tech-tag:hover {
+  background: rgba(var(--accent-rgb), 0.22) !important;
+  border-color: rgba(var(--accent-rgb), 0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ────────────────────────────────────────────────────────────
+   4. AVAILABLE BADGE — circle, icon only, zero text
+   ──────────────────────────────────────────────────────────── */
+.available-badge {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 200 !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  background: var(--bg-dark) !important;
+  border: 1.5px solid var(--accent-dark) !important;
+  color: var(--accent-dark) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3) !important;
+  animation: badgeBounce 2.5s ease-in-out infinite !important;
+  overflow: hidden !important;
+  /* Nuke any text node via font-size: 0 on the element,
+     restore only for the icon child */
+  font-size: 0 !important;
+  line-height: 0 !important;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease !important;
+}
+.available-badge:hover {
+  background: rgba(var(--accent-rgb), 0.15) !important;
+  box-shadow: 0 6px 28px rgba(var(--accent-rgb), 0.5) !important;
+  transform: scale(1.12) !important;
+  animation: none !important;
+}
+.available-badge i {
+  font-size: 1.1rem !important;
+  line-height: 1 !important;
+  color: var(--accent-dark) !important;
+  display: inline-flex !important;
+  pointer-events: none !important;
+}
+/* Kill any span/text inside badge */
+.available-badge span {
+  display: none !important;
+}
+
+/* ────────────────────────────────────────────────────────────
+   5. PROCESS FLOW — ZERO connectors, pure & clean
+   ──────────────────────────────────────────────────────────── */
+/* Nuke every possible pseudo-element on every process step */
+.process-step::before,
+.process-step::after,
+.process-step:not(:last-child)::after,
+.process-step:nth-child(1)::before,
+.process-step:nth-child(1)::after,
+.process-step:nth-child(2)::before,
+.process-step:nth-child(2)::after,
+.process-step:nth-child(3)::before,
+.process-step:nth-child(3)::after,
+.process-step:nth-child(4)::before,
+.process-step:nth-child(4)::after,
+.process-step:nth-child(5)::before,
+.process-step:nth-child(5)::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: none !important;
+  border: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  pointer-events: none !important;
+}
+
+/* Desktop: clean 5-col flex, generous gap, no connector needed */
+@media (min-width: 641px) {
+  .process-flow {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 1.25rem !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    max-width: 860px !important;
+    margin: 2rem auto 0 !important;
+  }
+  .process-step {
+    flex: 1 !important;
+    min-width: 100px !important;
+    max-width: 165px !important;
+    text-align: center !important;
+    padding: 1.25rem 0.5rem 0.75rem !important;
+    position: relative !important;
+    background: rgba(var(--accent-rgb), 0.04) !important;
+    border: 1px solid rgba(var(--accent-rgb), 0.1) !important;
+    border-radius: 16px !important;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease !important;
+  }
+  .process-step:hover {
+    transform: translateY(-6px) !important;
+    background: rgba(var(--accent-rgb), 0.08) !important;
+    border-color: rgba(var(--accent-rgb), 0.28) !important;
+  }
+}
+
+/* Mobile: 2-col grid, step 5 centered, no connectors */
+@media (max-width: 640px) {
+  .process-flow {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem !important;
+    max-width: 340px !important;
+    margin: 1.5rem auto 0 !important;
+  }
+  .process-step {
+    text-align: center !important;
+    padding: 1rem 0.5rem 0.75rem !important;
+    background: rgba(var(--accent-rgb), 0.04) !important;
+    border: 1px solid rgba(var(--accent-rgb), 0.1) !important;
+    border-radius: 14px !important;
+    transition: transform 0.3s ease !important;
+  }
+  .process-step:hover {
+    transform: translateY(-3px) !important;
+  }
+  .process-step:nth-child(5) {
+    grid-column: 1 / -1 !important;
+    max-width: 150px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+}
+
+/* Number bubbles — consistent sizing/animation */
+.process-number {
+  width: 48px !important;
+  height: 48px !important;
+  background: rgba(var(--accent-rgb), 0.1) !important;
+  border: 2px solid var(--accent-dark) !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+  color: var(--accent-dark) !important;
+  margin: 0 auto 0.6rem !important;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+.process-step:hover .process-number {
+  background: rgba(var(--accent-rgb), 0.22) !important;
+  box-shadow: 0 0 16px rgba(var(--accent-rgb), 0.35) !important;
+}
+.process-step i {
+  font-size: 1.05rem !important;
+  color: var(--accent-dark) !important;
+  display: block !important;
+  margin: 0 auto 0.45rem !important;
+  transition: transform 0.3s ease !important;
+}
+.process-step:hover i {
+  transform: scale(1.18) !important;
+}
+.process-step h4 {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.3rem !important;
+}
+.process-step p {
+  font-size: 0.72rem !important;
+  opacity: 0.65 !important;
+  line-height: 1.55 !important;
+}
+
+/* =========================================================
+   CLIENTS SECTION — v2.5 additions
+   Existing .clients-carousel / .clients-track / .client-logo
+   rules remain unchanged above. These additions handle:
+     1. Section subtitle
+     2. No-logo card variant (.client-logo-text)
+     3. Initial pill (.client-initial-pill)
+     4. Company name label (.client-name-label)
+     5. Link type badge (.client-link-badge)
+   ========================================================= */
+
+/* Section subtitle */
+.clients-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.65;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ── No-logo card variant ── */
+.client-logo-text {
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1rem;
+  min-width: 160px;
+  text-align: center;
+  position: relative;
+}
+
+/* Gold initial pill */
+.client-initial-pill {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.12);
+  border: 2px solid var(--accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  flex-shrink: 0;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.client-logo-text:hover .client-initial-pill {
+  background: rgba(var(--accent-rgb), 0.22);
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.35);
+}
+
+/* Company name under initial */
+.client-name-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  opacity: 0.75;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
+  display: block;
+}
+
+.client-logo-text:hover .client-name-label {
+  opacity: 1;
+  color: var(--accent-dark);
+}
+
+/* ── Link type badge (bottom-right corner of every card) ── */
+.client-link-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.15);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  color: var(--accent-dark);
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  pointer-events: none;
+}
+
+.client-logo:hover .client-link-badge,
+.client-logo-text:hover .client-link-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Ensure logo cards also have position:relative for the badge */
+.client-logo {
+  position: relative;
+}
+
+/* =========================================================
+   v2.8 — PROCESS FLOW: equal-height cards, top-aligned
+   Fixes the staggered vertical alignment caused by unequal
+   content lengths across the 5 steps.
+   ========================================================= */
+
+/* Stretch all cards to the tallest sibling's height */
+@media (min-width: 641px) {
+  .process-flow {
+    align-items: stretch !important;
+  }
+  .process-step {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    /* min-height ensures short-content cards aren't too squat */
+    min-height: 220px !important;
+  }
+  /* Pin number bubble at the very top */
+  .process-number {
+    flex-shrink: 0 !important;
+  }
+  /* Icon directly after number, also pinned */
+  .process-step > i {
+    flex-shrink: 0 !important;
+  }
+  /* Title pinned */
+  .process-step h4 {
+    flex-shrink: 0 !important;
+  }
+  /* Description fills remaining space so cards bottom-align naturally */
+  .process-step p {
+    flex: 1 !important;
+  }
+}
+
+/* Mobile grid: same stretch treatment */
+@media (max-width: 640px) {
+  .process-step {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    min-height: 160px !important;
+  }
+  .process-step p {
+    flex: 1 !important;
+  }
+}
+
+/* =========================================================
+   v2.9 — THEME CUSTOMIZER
+   Palette trigger, slide-in panel, swatches, font buttons.
+   Gradient text overrides use --accent-light variable so
+   all 10 palettes look coherent on titles/logo.
+   ========================================================= */
+
+/* ── CSS variable default (matches gold-noir palette) ── */
+:root {
+  --accent-light: var(--accent-light);
+  --font-body: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ── Override all gradient text to use --accent-light ── */
+.hero-title,
+.section-title,
+.page-hero-title,
+.collab-title {
+  background: linear-gradient(
+    135deg,
+    var(--accent-dark),
+    var(--accent-light)
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+.logo {
+  background: linear-gradient(
+    135deg,
+    var(--accent-dark),
+    var(--accent-light)
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+.coin-back-title {
+  background: linear-gradient(
+    90deg,
+    var(--accent-light),
+    var(--accent-dark)
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ── Trigger button ── */
+#cs-trigger {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: 200;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 1.5px solid var(--accent-dark);
+  color: var(--accent-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition:
+    transform 0.3s var(--spring),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+  animation: badgeBounce 2.5s ease-in-out infinite;
+}
+#cs-trigger:hover,
+#cs-trigger.cs-open {
+  animation: none;
+  transform: scale(1.12) rotate(15deg);
+  background: rgba(var(--accent-rgb), 0.15);
+  box-shadow: 0 6px 28px var(--shadow-color);
+}
+#cs-trigger i {
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+/* ── Panel ── */
+#cs-panel {
+  position: fixed;
+  top: 50%;
+  right: -340px;
+  transform: translateY(-50%);
+  width: 300px;
+  z-index: 49999;
+  background: rgba(20, 20, 20, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow:
+    -8px 0 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: right 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+#cs-panel.cs-open {
+  right: 85px;
+}
+
+/* ── Panel header ── */
+.cs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.cs-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cs-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border-dark);
+  background: transparent;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s ease;
+}
+.cs-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* ── Section label ── */
+.cs-section {
+  margin-bottom: 1rem;
+}
+.cs-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+.cs-section-label i {
+  font-size: 0.7rem;
+}
+
+/* ── Divider ── */
+.cs-divider {
+  height: 1px;
+  background: var(--border-dark);
+  margin: 1rem 0;
+  opacity: 0.5;
+}
+
+/* ── Swatches ── */
+.cs-swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.cs-swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.25s var(--spring),
+    box-shadow 0.25s ease,
+    border-color 0.2s ease;
+  position: relative;
+  outline: none;
+}
+.cs-swatch:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+.cs-swatch.cs-active {
+  border-color: #fff;
+  box-shadow:
+    0 0 0 3px var(--accent-dark),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: scale(1.15);
+}
+.cs-active-label {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  opacity: 0.55;
+  letter-spacing: 0.05em;
+  min-height: 1rem;
+  transition: opacity 0.2s ease;
+}
+
+/* ── Font buttons ── */
+.cs-fonts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+.cs-font-btn {
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-dark);
+  background: var(--glass-dark);
+  color: var(--text-dark);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+.cs-font-btn:hover {
+  border-color: var(--accent-dark);
+  background: rgba(var(--accent-rgb), 0.08);
+  transform: translateX(2px);
+}
+.cs-font-btn.cs-active {
+  border-color: var(--accent-dark);
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+/* ── Mobile adjustments ── */
+@media (max-width: 480px) {
+  #cs-panel {
+    width: 260px;
+    padding: 1.25rem;
+  }
+  #cs-panel.cs-open {
+    right: 12px;
+  }
+  #cs-trigger {
+    bottom: 90px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  .cs-fonts {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   v2.10 — COMPLETE PALETTE CONSISTENCY SYSTEM
+   ─────────────────────────────────────────────────────────
+   1. --accent-rgb  →  raw R,G,B triplet per palette
+      Used as:  rgba(var(--accent-rgb), 0.X)
+      Set by JS on applyPalette() for each palette.
+
+   2. Global transition softness on palette/mode change.
+   3. Customizer panel: fully palette + light/dark aware.
+   4. Available badge + cs-trigger: identical size/position.
+   5. Timeline dot: perfect circle, no teardrop.
+   6. Coin glow: pure variable driven.
+   7. Light mode: complete override set including panel.
+   8. Font family section removed from panel (JS handles).
+   ========================================================= */
+
+/* ── Root default accent-rgb (gold-noir) ── */
+:root {
+  --accent-rgb: 212, 175, 55;
+}
+
+/* ── Global palette/mode transition softness ── */
+*,
+*::before,
+*::after {
+  transition-property:
+    background-color, border-color, color, box-shadow, fill, stroke, opacity,
+    filter;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+}
+/* Preserve existing motion transitions (transform, width etc.) */
+.glass-card,
+.cta-button,
+.connect-btn,
+.modal-link,
+.category-btn,
+.skill-card,
+.project-card,
+.collab-card,
+.testimonial-card,
+.process-step,
+.tech-tag,
+.cs-swatch,
+.cs-font-btn,
+.mobile-nav-link,
+.mobile-subnav a,
+.desktop-nav a,
+.social-icon,
+.client-logo,
+.load-more-btn,
+#cs-trigger,
+.available-badge {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.4s var(--spring),
+    opacity 0.35s ease !important;
+}
+
+/* ── Coin glow: fully variable-driven ── */
+.profile-coin-container {
+  box-shadow:
+    0 0 0 var(--coin-border) var(--accent-dark),
+    0 0 30px 4px rgba(var(--accent-rgb), 0.55),
+    0 0 70px 8px rgba(var(--accent-rgb), 0.2);
+  transition: box-shadow 0.4s ease !important;
+}
+@keyframes coinGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 var(--coin-border) var(--accent-dark),
+      0 0 30px 4px rgba(var(--accent-rgb), 0.55),
+      0 0 70px 8px rgba(var(--accent-rgb), 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 0 var(--coin-border) var(--accent-light),
+      0 0 45px 8px rgba(var(--accent-rgb), 0.75),
+      0 0 90px 16px rgba(var(--accent-rgb), 0.3);
+  }
+}
+
+/* ── Timeline dot: force perfect circle, variable colors ── */
+.timeline-dot {
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  border-radius: 50% !important;
+  background: var(--accent-dark) !important;
+  box-shadow:
+    0 0 0 4px rgba(var(--accent-rgb), 0.18),
+    0 0 12px rgba(var(--accent-rgb), 0.25) !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  aspect-ratio: 1 !important;
+}
+.timeline-item:hover .timeline-dot {
+  box-shadow:
+    0 0 0 6px rgba(var(--accent-rgb), 0.28),
+    0 0 20px rgba(var(--accent-rgb), 0.45) !important;
+}
+
+/* ── Tech tags: full variable palette ── */
+.tech-tag {
+  background: rgba(var(--accent-rgb), 0.1) !important;
+  color: var(--accent-dark) !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.22) !important;
+}
+.tech-tag:hover {
+  background: rgba(var(--accent-rgb), 0.22) !important;
+  border-color: var(--accent-dark) !important;
+}
+
+/* ── Shimmer sweep: variable gradient ── */
+.glass-card:not(.modal-content)::after,
+.cta-button::after,
+.load-more-btn::after,
+.connect-btn::after,
+.modal-link::after,
+.category-btn::after {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(var(--accent-rgb), 0.18) 50%,
+    transparent 100%
+  ) !important;
+}
+
+/* ── Glow-hover ripple: variable ── */
+.glow-hover::before {
+  background: radial-gradient(
+    circle,
+    rgba(var(--accent-rgb), 0.35),
+    transparent
+  ) !important;
+}
+
+/* ── Skills category buttons ── */
+.category-btn.active {
+  background: var(--accent-dark) !important;
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.45) !important;
+}
+.category-btn:hover:not(.active) {
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.2) !important;
+}
+
+/* ── Social icons tooltip ── */
+.social-icon::before {
+  background: rgba(var(--accent-rgb), 0.12) !important;
+  border-color: rgba(var(--accent-rgb), 0.25) !important;
+  color: var(--accent-dark) !important;
+}
+
+/* ── Client logo hover ── */
+.client-logo:hover {
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.2) !important;
+}
+
+/* ── Process number bubble ── */
+.process-number {
+  background: rgba(var(--accent-rgb), 0.1) !important;
+  border-color: var(--accent-dark) !important;
+}
+.process-step:hover .process-number {
+  background: rgba(var(--accent-rgb), 0.22) !important;
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.35) !important;
+}
+
+/* ── Experience timeline vertical line ── */
+.experience-timeline::before {
+  background: linear-gradient(
+    180deg,
+    var(--accent-dark),
+    transparent
+  ) !important;
+}
+.experience-item::before {
+  background: var(--accent-dark) !important;
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.5) !important;
+}
+
+/* ── Testimonials CTA card ── */
+.testimonials-cta {
+  background: rgba(var(--accent-rgb), 0.05) !important;
+  border-color: rgba(var(--accent-rgb), 0.22) !important;
+}
+.testimonials-cta a,
+.testimonials-cta-btn {
+  background: var(--accent-dark) !important;
+}
+
+/* ── Available badge ── */
+.available-badge {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 200 !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  background: var(--bg-dark) !important;
+  border: 1.5px solid var(--accent-dark) !important;
+  color: var(--accent-dark) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.15rem !important;
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3) !important;
+}
+.available-badge:hover {
+  background: rgba(var(--accent-rgb), 0.15) !important;
+  box-shadow: 0 6px 28px rgba(var(--accent-rgb), 0.5) !important;
+}
+.available-badge i {
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+}
+
+/* ── Customizer trigger: identical to badge but offset ── */
+#cs-trigger {
+  position: fixed !important;
+  bottom: 88px !important; /* badge (24) + badge height (50) + 14px gap */
+  right: 24px !important;
+  z-index: 201 !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  background: var(--bg-dark) !important;
+  border: 1.5px solid var(--accent-dark) !important;
+  color: var(--accent-dark) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.15rem !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3) !important;
+  animation: badgeBounce 2.5s ease-in-out infinite 0.3s !important;
+}
+#cs-trigger:hover,
+#cs-trigger.cs-open {
+  animation: none !important;
+  transform: scale(1.12) rotate(15deg) !important;
+  background: rgba(var(--accent-rgb), 0.15) !important;
+  box-shadow: 0 6px 28px rgba(var(--accent-rgb), 0.5) !important;
+}
+#cs-trigger i {
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+}
+
+/* ── Customizer panel: palette + mode aware ── */
+#cs-panel {
+  background: var(--bg-dark) !important;
+  border-color: var(--border-dark) !important;
+  box-shadow:
+    -8px 0 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(var(--accent-rgb), 0.08) !important;
+}
+.cs-swatch {
+  transition:
+    transform 0.25s var(--spring),
+    box-shadow 0.25s ease,
+    border-color 0.2s ease !important;
+}
+.cs-swatch.cs-active {
+  box-shadow:
+    0 0 0 3px var(--accent-dark),
+    0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+.cs-font-btn {
+  background: rgba(var(--accent-rgb), 0.04) !important;
+  border-color: rgba(var(--accent-rgb), 0.18) !important;
+  color: var(--text-dark) !important;
+}
+.cs-font-btn:hover {
+  border-color: var(--accent-dark) !important;
+  background: rgba(var(--accent-rgb), 0.1) !important;
+}
+.cs-font-btn.cs-active {
+  border-color: var(--accent-dark) !important;
+  background: rgba(var(--accent-rgb), 0.18) !important;
+  color: var(--accent-dark) !important;
+}
+.cs-close {
+  border-color: var(--border-dark) !important;
+  color: var(--text-dark) !important;
+}
+.cs-divider {
+  background: var(--border-dark) !important;
+}
+.cs-active-label {
+  color: var(--text-dark) !important;
+}
+
+/* ── Light mode: complete palette + panel override ── */
+:root[data-theme="light"] {
+  --bg-dark: #f5f5f0;
+  --text-dark: #1a1a1a;
+  --glass-dark: rgba(255, 255, 255, 0.65);
+  --border-dark: rgba(var(--accent-rgb), 0.3);
+  --shadow-color: rgba(var(--accent-rgb), 0.35);
+}
+:root[data-theme="light"] body {
+  background: #f5f5f0;
+  color: #1a1a1a;
+}
+:root[data-theme="light"] .glass-card,
+:root[data-theme="light"] .glass-header,
+:root[data-theme="light"] .glass-footer {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-color: rgba(var(--accent-rgb), 0.25) !important;
+}
+:root[data-theme="light"] #cs-panel {
+  background: rgba(245, 245, 240, 0.97) !important;
+}
+:root[data-theme="light"] .cs-font-btn {
+  background: rgba(var(--accent-rgb), 0.06) !important;
+  color: #1a1a1a !important;
+}
+:root[data-theme="light"] .cs-close {
+  color: #1a1a1a !important;
+}
+:root[data-theme="light"] .cs-active-label {
+  color: #1a1a1a !important;
+}
+:root[data-theme="light"] .available-badge,
+:root[data-theme="light"] #cs-trigger {
+  background: #f5f5f0 !important;
+}
+:root[data-theme="light"] .mobile-menu-content {
+  background: rgba(245, 245, 240, 0.97) !important;
+}
+:root[data-theme="light"] .loader-text {
+  color: #1a1a1a;
+}
+
+/* ── Mobile: keep both icons same size/alignment ── */
+@media (max-width: 480px) {
+  .available-badge {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+  #cs-trigger {
+    bottom: 78px !important; /* 16 + 46 + 16 */
+    right: 16px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+}
+
+/* ── Outcome tags: variable colors ── */
+.outcome-tag i {
+  color: var(--accent-dark) !important;
+}
+
+/* ── Footer availability icon ── */
+.footer-avail-icon {
+  color: var(--accent-dark) !important;
+}
+.contact-avail-icon {
+  color: var(--accent-dark) !important;
+}
+
+/* ── Currently building progress bar ── */
+.progress-bar-fill {
+  background: var(--accent-dark) !important;
+}
+.status-in-progress {
+  color: var(--accent-dark) !important;
+  border-color: var(--accent-dark) !important;
+}
+
+/* ── Client initial pill ── */
+.client-initial-pill {
+  background: rgba(var(--accent-rgb), 0.12) !important;
+  border-color: var(--accent-dark) !important;
+  color: var(--accent-dark) !important;
+}
+.client-logo-text:hover .client-initial-pill {
+  background: rgba(var(--accent-rgb), 0.22) !important;
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.35) !important;
+}
+.client-link-badge {
+  background: rgba(var(--accent-rgb), 0.15) !important;
+  border-color: rgba(var(--accent-rgb), 0.3) !important;
+  color: var(--accent-dark) !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar-thumb {
+  background: var(--accent-dark) !important;
+}
+
+/* ── Stat counter numbers ── */
+.stat-item h3 {
+  color: var(--accent-dark) !important;
+}
+
+/* ── Pinned badge ── */
+.pinned-badge {
+  background: linear-gradient(
+    135deg,
+    var(--accent-dark),
+    rgba(var(--accent-rgb), 0.8)
+  ) !important;
+}
+
+/* ── Modal link buttons ── */
+.modal-link {
+  border-color: var(--border-dark) !important;
+}
+
+/* ── Service CTA button ── */
+.service-cta-btn {
+  border-color: var(--accent-dark) !important;
+  color: var(--accent-dark) !important;
+}
+.service-cta-btn:hover {
+  background: var(--accent-dark) !important;
+  color: #1a1a1a !important;
+}
+.service-turnaround {
+  color: var(--accent-dark) !important;
+}
+
+/* ── About CTA card ── */
+.about-cta-card {
+  background: rgba(var(--accent-rgb), 0.06) !important;
+  border-color: rgba(var(--accent-rgb), 0.25) !important;
+}
+
+/* ── Currently building card ── */
+.currently-building-card {
+  border-color: var(--border-dark) !important;
+}
+
+/* ── Mobile subnav border ── */
+.mobile-subnav {
+  border-left-color: rgba(var(--accent-rgb), 0.35) !important;
+}
+.mobile-subnav a:hover {
+  background: rgba(var(--accent-rgb), 0.07) !important;
+}
+
+/* ── Desktop nav active underline ── */
+.desktop-nav a::after {
+  background: var(--accent-dark) !important;
+}
+.desktop-nav a.nav-active {
+  color: var(--accent-dark) !important;
+  border-bottom-color: var(--accent-dark) !important;
+}
+
+/* ── Testimonial avatar border ── */
+.testimonial-avatar {
+  border-color: var(--accent-dark) !important;
+}
+
+/* ── Testimonial stars ── */
+.testimonial-stars {
+  color: var(--accent-dark) !important;
+}
+
+/* ── Contact channel card hover ── */
+.contact-channel-card:hover {
+  border-color: var(--accent-dark) !important;
+  box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.18) !important;
+}
+.contact-channel-card i,
+.contact-channel-card svg {
+  color: var(--accent-dark) !important;
+}
+
+/* ── About profile image ring ── */
+.about-profile-img {
+  border-color: var(--accent-dark) !important;
+  box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.12) !important;
+}
+
+/* ── Currently card icons ── */
+.currently-icon,
+.philosophy-icon,
+.service-tier-icon,
+.collab-icon,
+.contact-avail-icon {
+  color: var(--accent-dark) !important;
 }

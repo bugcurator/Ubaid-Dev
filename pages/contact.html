@@ -3,30 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Projects - Ubaid Ahmad</title>
-    <meta
-      name="title"
-      content="All Projects | Ubaid Ahmad - Full-Stack MERN Developer &amp; UI/UX Designer"
-    />
+    <title>Contact - Ubaid Ahmad | Let's Work Together</title>
     <meta
       name="description"
-      content="Browse all projects by Ubaid Ahmad - Full-Stack MERN Developer &amp; UI/UX Designer. Client work, personal builds, and everything in between."
+      content="Get in touch with Ubaid Ahmad - Full-Stack MERN Developer and UI/UX Designer. No forms, just direct contact channels."
     />
     <meta name="author" content="Ubaid Ahmad" />
     <meta name="robots" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://bugcurator.github.io/pages/projects.html"
-    />
     <link rel="icon" type="image/png" href="../assets/webpage-icon.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="All Projects | Ubaid Ahmad" />
-    <meta
-      property="og:description"
-      content="Browse all projects by Ubaid Ahmad - Full-Stack MERN Developer &amp; UI/UX Designer."
-    />
-    <meta property="og:image" content="../assets/ubaidahmad-img.jpg" />
-    <meta property="og:site_name" content="Ubaid Ahmad Portfolio" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -62,9 +46,9 @@
           <nav class="desktop-nav" aria-label="Main Navigation">
             <a href="../index.html">Home</a>
             <a href="./about.html">About</a>
-            <a href="./projects.html" class="nav-active">Projects</a>
+            <a href="./projects.html">Projects</a>
             <a href="./services.html">Services</a>
-            <a href="./contact.html">Contact</a>
+            <a href="./contact.html" class="nav-active">Contact</a>
           </nav>
           <div class="header-actions">
             <button
@@ -100,93 +84,113 @@
         <nav class="mobile-nav" aria-label="Mobile Navigation">
           <a href="../index.html" class="mobile-nav-link">Home</a>
           <a href="./about.html" class="mobile-nav-link">About</a>
-          <!-- Projects - active with sub-nav -->
+          <a href="./projects.html" class="mobile-nav-link">Projects</a>
+          <a href="./services.html" class="mobile-nav-link">Services</a>
+          <!-- Contact - active with sub-nav -->
           <div class="mobile-nav-group is-active">
-            <a href="./projects.html" class="mobile-nav-link active-page"
-              >Projects</a
+            <a href="./contact.html" class="mobile-nav-link active-page"
+              >Contact</a
             >
             <div class="mobile-subnav">
-              <a href="#all-projects">All Projects</a>
+              <a href="#channels-title">Reach Me</a>
+              <a href="#availability-title">Availability</a>
             </div>
           </div>
-          <a href="./services.html" class="mobile-nav-link">Services</a>
-          <a href="./contact.html" class="mobile-nav-link">Contact</a>
         </nav>
       </div>
     </div>
 
-    <!-- ── All Projects Section ── -->
+    <!-- ── A. Page Header ── -->
     <section
-      id="all-projects"
-      class="section all-projects-section hero-animate"
-      aria-labelledby="all-projects-title"
+      class="page-hero hero-animate"
+      aria-labelledby="contact-hero-title"
     >
       <div class="container-custom">
+        <h1 id="contact-hero-title" class="page-hero-title">
+          Let's Work Together
+        </h1>
+        <p class="page-hero-sub">
+          Choose your preferred channel - I respond within 24 hours on weekdays.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── B. Contact Channels Grid ── -->
+    <section class="section" aria-labelledby="channels-title">
+      <div class="container-custom">
         <div class="section-wrapper" style="text-align: center">
-          <h2 id="all-projects-title" class="section-title">All Projects</h2>
-          <p
-            class="connect-description animate-on-scroll fade-in"
-            style="margin-bottom: 2.5rem"
-          >
-            A complete look at everything I've built - client work, personal
-            experiments, and everything in between.
-          </p>
+          <h2 id="channels-title" class="section-title">Reach Me Directly</h2>
 
-          <div id="projectsGrid" class="projects-grid"></div>
-
-          <!-- Currently Building Card -->
-          <div
-            class="glass-card currently-building-card animate-on-scroll fade-in"
-          >
-            <div class="hammer-icon-pulse">
-              <i class="fas fa-hammer"></i>
-            </div>
-            <h3>Currently Building</h3>
-            <p>
-              A full-stack MERN Contact Manager with React Hooks and MongoDB
-              Atlas
-            </p>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar-fill"></div>
-            </div>
-            <span class="status-in-progress">In Progress</span>
-          </div>
-
-          <div
-            class="back-to-home-wrap animate-on-scroll fade-in"
-            style="margin-top: 2.5rem"
-          >
+          <div class="contact-channels-grid">
+            <!-- Email -->
             <a
-              href="../index.html"
-              class="cta-button glow-hover"
-              aria-label="Back to home page"
+              href="mailto:iubaidahmad303@gmail.com?subject=Project%20Enquiry%20via%20Contact%20Page&body=Hi%20Ubaid%2C%0A%0AI%20reached%20out%20through%20your%20contact%20page%20and%20I%20would%20love%20to%20discuss%20a%20project%20with%20you.%0A%0A---%20What%20I%20Need%20---%0AProject%20type%3A%20%0ATimeline%3A%20%0ABudget%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
+              class="contact-channel-card glass-card animate-on-scroll fade-in"
+              aria-label="Send an email"
             >
-              <i class="fas fa-arrow-left"></i> Back to Home
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <span>iubaidahmad303@gmail.com</span>
+            </a>
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/bugcurator"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-channel-card glass-card animate-on-scroll fade-in"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+              <h3>GitHub</h3>
+              <span>@bugcurator</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/ubaid-ahmad-07423b2a8"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-channel-card glass-card animate-on-scroll fade-in"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+              <h3>LinkedIn</h3>
+              <span>Connect on LinkedIn</span>
+            </a>
+
+            <!-- WhatsApp -->
+            <a
+              href="https://wa.me/+923360973607?text=Hi%20Ubaid%2C%0A%0AI came across your portfolio and wanted to get in touch. I would like to discuss or ask about your work, services, or any opportunities.%0A%0ALooking forward to your reply.%0A%0ABest%20regards%2C%0A[Your%20Name]"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-channel-card glass-card animate-on-scroll fade-in"
+              aria-label="WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+              <h3>WhatsApp</h3>
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Project Modal -->
-    <div
-      id="projectModal"
-      class="modal"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Project Details"
-    >
-      <div class="modal-content glass-card">
-        <button
-          class="modal-close"
-          id="closeProjectModal"
-          aria-label="Close project modal"
-        >
-          <i class="fas fa-times"></i>
-        </button>
-        <div id="projectModalContent"></div>
+    <!-- ── C. Availability Status ── -->
+    <section class="section" aria-labelledby="availability-title">
+      <div class="container-custom">
+        <div class="section-wrapper" style="text-align: center">
+          <div class="glass-card animate-on-scroll fade-in contact-avail-card">
+            <h2 id="availability-title">Current Availability</h2>
+            <div class="contact-avail-status">
+              <i class="fas fa-check-circle contact-avail-icon"></i>
+              <span>Available for New Projects</span>
+            </div>
+            <p>I respond within 24 hours on weekdays</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!-- ── Footer ── -->
     <footer class="glass-footer">
@@ -212,7 +216,7 @@
 
     <!-- Available for Work Badge - icon only -->
     <a
-      href="mailto:iubaidahmad303@gmail.com?subject=Quick%20Enquiry%20--%20Project%20Review&body=Hi%20Ubaid%2C%0A%0AI%20reviewed%20your%20projects%20portfolio%20and%20I%20would%20love%20to%20discuss%20a%20project%20with%20you.%0A%0A---%20What%20I%20Need%20---%0AProject%20type%3A%20%0ATimeline%3A%20%0ABudget%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
+      href="mailto:iubaidahmad303@gmail.com?subject=Quick%20Enquiry%20--%20Contact%20Page&body=Hi%20Ubaid%2C%0A%0AI%20was%20on%20your%20contact%20page%20and%20I%20would%20love%20to%20discuss%20a%20project%20with%20you.%0A%0A---%20What%20I%20Need%20---%0AProject%20type%3A%20%0ATimeline%3A%20%0ABudget%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
       class="available-badge"
       aria-label="Available for work"
     >

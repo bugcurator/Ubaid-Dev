@@ -29,6 +29,10 @@ window.projects = [
       "A sleek, responsive portfolio built for Muhammad Dawood, a DevOps Engineer, using HTML, CSS, and JavaScript. It highlights his expertise in CI/CD, cloud infrastructure, and automation tools through well-structured sections, interactive UI, and smooth animations crafted to reflect both technical depth and professional identity.",
     demo: "https://idavidkhan.github.io/DevOps/",
     github: "https://github.com/idavidkhan/DevOps",
+    outcomes: [
+      { icon: "check-circle", label: "Client live since Jan 2025" },
+      { icon: "star", label: "5-star client review" },
+    ],
   },
   {
     id: 2,
@@ -50,6 +54,10 @@ window.projects = [
       "StudyStation is a multi-page web interface designed for a WhatsApp learning channel. Built with HTML, Tailwind CSS, and JavaScript, it features responsive layouts, fluid animations, and a clean, soft aesthetic. The site focuses on delivering a seamless and engaging browsing experience, structured to showcase resources, updates, and channel insights effectively.",
     demo: "https://bugcurator.github.io/StudyStation/",
     github: "https://github.com/bugcurator/StudyStation",
+    outcomes: [
+      { icon: "zap", label: "Sub-1s load time" },
+      { icon: "check-circle", label: "Client live since Jan 2025" },
+    ],
   },
   {
     id: 3,
@@ -72,7 +80,12 @@ window.projects = [
       "A modern, single-page website designed for Hadaf Immigration Consultancy, which assists students in pursuing education abroad. This ready-to-use UI emphasizes clarity, smooth animations, and professional layout to attract and engage potential clients. Ideal for any consultancy looking to establish a trustworthy digital presence. Fully responsive and easy to customize or deploy.",
     demo: "https://bugcurator.github.io/Hadaf-Immigration/",
     github: "https://github.com/bugcurator/Hadaf-Immigration",
+    outcomes: [
+      { icon: "check-circle", label: "Client live since Jan 2025" },
+      { icon: "zap", label: "Sub-1s load time" },
+    ],
   },
+
   // --- ADD MORE PROJECTS BELOW ----------------------------------------
   // Copy and paste this template, fill in the fields, and
   // increment the id by 1 each time.
